@@ -92,4 +92,4 @@ Those belong to the programmatic horizon unless directly required by the present
 
 ## Link
 
-Constrained by: [[01_Governing_Memo]]
+Constrained by: [[Chapter2_Obsidian/01_Governing_Memo]]

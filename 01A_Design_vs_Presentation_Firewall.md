@@ -12,7 +12,7 @@ design_role: enforcement
 
 Prevent presentation logic from overrunning design logic.
 
-This note enforces the partition defined in [[01_Governing_Memo]] during writing.
+This note enforces the partition defined in [[Chapter2_Obsidian/01_Governing_Memo]] during writing.
 
 ---
 
@@ -129,7 +129,7 @@ If a paragraph does more than one, split or cut.
 If a section grows but does not make the capacity-utilization argument clearer:
 
 → stop writing  
-→ return to [[01_Governing_Memo]]  
+→ return to [[Chapter2_Obsidian/01_Governing_Memo]]  
 → re-anchor before continuing  
 
 ---
@@ -148,4 +148,4 @@ Before accepting any section:
 
 ## Link
 
-Enforced by: [[01_Governing_Memo]]
+Enforced by: [[Chapter2_Obsidian/01_Governing_Memo]]
