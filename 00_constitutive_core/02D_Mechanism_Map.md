@@ -60,3 +60,7 @@ It does not yet require:
 - complete dependency-theory deployment
 - expanded historical corridor architecture
 - full process-tracing dataset construction
+
+## Bridge note
+
+- [[00_Okishio_Vidal_Bridge]]

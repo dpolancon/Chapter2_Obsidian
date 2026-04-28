@@ -403,3 +403,7 @@ It should not be split. It should remain flat because its value lies in the sequ
 # Final punchline
 
 [[Vidal]] gives the theory of contradiction. The utilization paper translates that contradiction into firm-level [[contradictory utilization configurations]]. [[Utilization regimes]] then organize those configurations historically across firms, sectors, and periods.
+
+## Bridge note
+
+- [[00_Okishio_Vidal_Bridge]]

@@ -253,3 +253,7 @@ This is the tone lock for the whole paper-facing chapter:
 If any section cannot be defended as serving this sentence, it should be cut or subordinated:
 
 **Chapter 2 reconstructs capacity utilization as a structurally mediated object by identifying the transformation elasticity through which distribution conditions the conversion of accumulation into productive capacity under capitalist disequilibrium, and by comparing how that same problem is differently determined in the center and the periphery.**
+
+## Bridge note
+
+- [[00_Okishio_Vidal_Bridge]]

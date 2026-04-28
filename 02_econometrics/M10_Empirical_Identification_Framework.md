@@ -212,3 +212,7 @@ Do not scatter econometric references unless the note needs standalone portabili
 ## 10. Locked statement
 
 **Chapter 2 does not estimate utilization directly. It estimates the long-run transformation relation, reconstructs productive capacity, anchors its level, and only then derives utilization. FM-OLS is the main estimator, IM-OLS is the robustness check, DOLS is the fragility diagnostic, and threshold-FGLS belongs only to the regime layer after diagnostic admissibility.**
+
+## Bridge note
+
+- [[00_Okishio_Vidal_Bridge]]
