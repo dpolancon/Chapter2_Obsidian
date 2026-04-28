@@ -114,3 +114,7 @@ As productive forces develop, they eventually act as "fetters" on production. Th
 - The socialization of information-processing.
 
 **Key Insight:** "At a certain stage of development, the material productive forces of society come into conflict with the existing relations of production... From forms of development of productive forces, these relations turn into their fetters, and an era of social revolution begins." — _Karl Marx (quoted in context)_
+
+
+
+[[]]

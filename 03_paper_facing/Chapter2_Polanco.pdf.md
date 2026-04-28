@@ -23,7 +23,7 @@ From a growth-and-distribution perspective, this implies that the _“normal”_
 Finally, the argument re frames the relation between the firm and the market. Marxist Political Economy within the research avenue placing its level of abstraction solely in the value form, accurately have theorized the two-fold modes of domination within the capitalist system: the direct control of labour at the level of the firm as form of apperance of subordination from workers to capitalists on the one hand, and the impersonal domination of capital as a social relation that subordinates workers and capitalist alike at the site of the market caused by the contradiction carried by commodities due the dislocation of their use and the substance of its value, where the phenomena of commodity fetishism takes place (Basu, 2022). However, here is argued that the anarchic character of  markets under the capitalist mode of production does not disappear inside the firm; it is reorganized. Firms do not overcome market anarchy; they internalize it through constrained planning shaped by uncertainty and contradictory interests across organizational scales. The site of theorizatin for political economy is therefore not a firm-level normal degree of capacity utilization, but the historically specific configuration of contradictory utilization configurations through which production is organized and reproduced.
 
 
-##  Stagnation, Contradiction, and the Configurations of Capacity Utilization
+##  2. Stagnation, Contradiction, and the Configurations of Capacity Utilization
 
 Capitalist production does not reproduce itself smoothly. The growth of capital and the growth of capacity unfold at different rhythms, governed by different determinants, and there is no automatic mechanism bringing them into balance. When capital accumulates faster than capacity expands, demand pressure mounts on existing capacity and prices rise. When capacity expands faster than capital is renewed, idle equipment accumulates and pressure mounts on profitability. The two rhythms can synchronize, but only momentarily. What follows is divergence in one direction or the other, and a new round of adjustment.
 
@@ -375,4 +375,4 @@ Empirical identification targets the transformation relation directly. Utilizati
 
 # References 
 
-[[Chapter2_Obsidian/Chapter2_References]]
+[[Chapter2_References]]

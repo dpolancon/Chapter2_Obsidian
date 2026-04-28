@@ -46,11 +46,11 @@ Utilization is not chosen once; it is produced across organizational scales, eac
 
 ## Table 2. Utilization regimes and configurations
 
-| Utilization regime (macro layer) | Firm-level utilization configuration | Labor form | Managerial logic | Capacity convention | Utilization pattern |
-|---|---|---|---|---|---|
-| Fordist stabilization | Standardized throughput configuration | Manualized, routinized labor | Discipline, pacing, scale | Engineering / practical | Stable, high-volume utilization |
-| Post-Fordist / lean | Empowered-discipline configuration | Cognitive labor under control | Flexibility, continuous improvement | Practical / planned | Locally adaptive, unstable |
-| Financialized capitalism | Shareholder-value configuration | Labor as cost, flexible input | Short horizons, payout discipline | Accounting / planned | Constrained, volatile utilization |
-| Global supply-chain fragmentation | Distributed-capacity configuration | Dispersed labor across firms | Coordination via subcontracting | Planned / network practical | Utilization displaced across units |
-| Measurement-dominated regimes | Reported-capacity configuration | Labor abstracted from metrics | Benchmarking, statistical normalization | Survey / macro-statistical | Apparent coherence via measurement |
-| High-road / learning regimes | Learning-centered configuration | Empowered, trained labor | Long-term coordination, participation | Practical / planned | Stable high utilization as exceptional achievement |
+| Utilization regime (macro layer)  | Firm-level utilization configuration  | Labor form                    | Managerial logic                        | Capacity convention         | Utilization pattern                                |
+| --------------------------------- | ------------------------------------- | ----------------------------- | --------------------------------------- | --------------------------- | -------------------------------------------------- |
+| Fordist stabilization             | Standardized throughput configuration | Manualized, routinized labor  | Discipline, pacing, scale               | Engineering / practical     | Stable, high-volume utilization                    |
+| Post-Fordist / lean               | Empowered-discipline configuration    | Cognitive labor under control | Flexibility, continuous improvement     | Practical / planned         | Locally adaptive, unstable                         |
+| Financialized capitalism          | Shareholder-value configuration       | Labor as cost, flexible input | Short horizons, payout discipline       | Accounting / planned        | Constrained, volatile utilization                  |
+| Global supply-chain fragmentation | Distributed-capacity configuration    | Dispersed labor across firms  | Coordination via subcontracting         | Planned / network practical | Utilization displaced across units                 |
+| Measurement-dominated regimes     | Reported-capacity configuration       | Labor abstracted from metrics | Benchmarking, statistical normalization | Survey / macro-statistical  | Apparent coherence via measurement                 |
+| High-road / learning regimes      | Learning-centered configuration       | Empowered, trained labor      | Long-term coordination, participation   | Practical / planned         | Stable high utilization as exceptional achievement |

@@ -1,112 +1,72 @@
 ---
-title: "Theoretical Core: Vidal against One-Sided Bravermanian Deskilling"
-type: notebook
+title: "Theoretical Core - Vidal against One-Sided Bravermanian Deskilling"
+type: "notebook"
 project: "Normal utilization and the fractured firm"
-status: developed
-pathway: article
-level: theoretical-core
+status: "developed"
+pathway: "article"
+level: "theoretical-core"
 flat_notebook: true
 
 core_object: "contradictory utilization configurations"
 higher_order_object: "utilization regimes"
-
 central_claim: "A firm-level normal degree of capacity utilization presupposes a unified organizational subject that capitalist labor management does not actually provide."
 
 primary_function:
-  - theoretical core
-  - concept formation
-  - micro-foundational critique
+  - "theoretical core"
+  - "concept formation"
+  - "micro-foundational critique"
 
-notebook_dimensions:
-  ontological_target:
-    - unified firm
-    - unified normal benchmark
-  mechanism_of_contradiction:
-    - discipline-empowerment
-    - labor-process/valorization split
-    - managerial satisficing
-  scale:
-    - shop floor
-    - plant
-    - corporate
-  capacity_convention:
-    - practical
-    - planned
-  utilization_object:
-    - theoretical normal
-    - realized
-  temporal_horizon:
-    - medium-run tactical adjustment
-    - historical regime
-  critical_leverage:
-    - agency
-    - unity
-    - temporality
+ontological_target:
+  - "unified firm"
+  - "unified normal benchmark"
 
-section_classification:
-  purpose:
-    function: "defines notebook role"
-    export_use: "introductory framing"
-  core_question:
-    function: "states research problem"
-    export_use: "article problem statement"
-  punchline:
-    function: "conceptual condensation"
-    export_use: "section close or transition"
-  braverman:
-    function: "historical baseline"
-    destabilizes: "neutral technical progress"
-  vidal:
-    function: "theoretical hinge"
-    destabilizes: "unitary labor-control model"
-  labor_process_valorization:
-    function: "conceptual split"
-    destabilizes: "unified firm-level benchmark"
-  fordism_postfordism:
-    function: "historical specification"
-    destabilizes: "timeless normal degree"
-  bridge_authors:
-    function: "literature thickening"
-    destabilizes: "one-sided deskilling"
-  implications:
-    function: "translation into utilization theory"
-    destabilizes: "firm-wide normal degree"
-  propositions:
-    function: "article-ready claims"
-    export_use: "theory section scaffold"
-  reverse_outline:
-    function: "drafting map"
-    export_use: "article section plan"
-  master_ledger:
-    function: "source-role map"
-    export_use: "literature control table"
-  draft_prose:
-    function: "reusable prose"
-    export_use: "article insertion"
-  references:
-    function: "bibliographic base"
-    export_use: "references note"
+mechanism_of_contradiction:
+  - "discipline-empowerment"
+  - "labor-process/valorization split"
+  - "managerial satisficing"
+
+scale:
+  - "shop floor"
+  - "plant"
+  - "corporate"
+
+capacity_convention:
+  - "practical"
+  - "planned"
+
+utilization_object:
+  - "theoretical normal"
+  - "realized"
+
+temporal_horizon:
+  - "medium-run tactical adjustment"
+  - "historical regime"
+
+critical_leverage:
+  - "agency"
+  - "unity"
+  - "temporality"
 
 main_authors:
-  - Braverman
-  - Vidal
-  - Adler
-  - Thompson
-  - Elger
-  - Littler
-  - Cressey and MacInnes
+  - "Braverman"
+  - "Vidal"
+  - "Adler"
+  - "Thompson"
+  - "Elger"
+  - "Littler"
+  - "Cressey and MacInnes"
 
 tags:
-  - utilization
-  - normal-degree
-  - contradictory-utilization-configurations
-  - utilization-regimes
-  - labor-process
-  - valorization
-  - divided-management
-  - managerial-satisficing
-  - post-fordism
-  - firm-theory
+  - "utilization"
+  - "normal-degree"
+  - "contradictory-utilization-configurations"
+  - "utilization-regimes"
+  - "labor-process"
+  - "valorization"
+  - "divided-management"
+  - "managerial-satisficing"
+  - "post-fordism"
+  - "firm-theory"
 ---
 
 > Flat-notebook rule: this note remains one developed artifact. Classification is handled through YAML and sparse wikilinks. Wikilinks connect reusable concepts, authors, and export objects; they do not split the notebook into nested notes.

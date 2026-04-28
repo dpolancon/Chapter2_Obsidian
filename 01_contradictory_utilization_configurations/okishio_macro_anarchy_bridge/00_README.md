@@ -37,18 +37,20 @@ The utilization-configuration framework explains what Okishio largely leaves abs
 
 [[Okishio]] → [[market anarchy]] → [[macro disequilibrium]] → [[unified firm abstraction]] → [[contradictory utilization configurations]] → [[utilization regimes]]
 
+
+
 ## Active files
 
-| File | Function | Status |
-|---|---|---|
-| `00_README.md` | Landing note for the satellite bundle | active |
-| `01_Okishio_Master_Overview.md` | Descriptive overview of Okishio’s accumulation theory | active |
-| `02_Accumulation_and_Disequilibrium_Reconstruction.md` | Mechanism chain: accumulation → disproportionality → idle capacity → crisis | active |
-| `03_Okishio_and_the_Unified_Firm_Gap.md` | Core bridge to contradictory utilization configurations | active-core |
-| `04_Key_Concept_Ledger.md` | Reusable vocabulary and concept definitions | active-support |
-| `05_NotebookLM_Question_Bank.md` | Source interrogation prompts | support |
-| `06_Visuals/` | Infographic and visual support | support |
-| `archive_raw_briefs/` | Preserved raw briefs, not active argument notes | archive |
+| File                                                                                              | Function                                                                    | Status         |
+| ------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------- | -------------- |
+| [[01_contradictory_utilization_configurations/okishio_macro_anarchy_bridge/00_README\|00_README]] | Landing note for the satellite bundle                                       | active         |
+| [[01_Okishio_Master_Overview]]                                                                    | Descriptive overview of Okishio’s accumulation theory                       | active         |
+| [[02_Accumulation_and_Disequilibrium_Reconstruction]]                                             | Mechanism chain: accumulation → disproportionality → idle capacity → crisis | active         |
+| [[03_Okishio_and_the_Unified_Firm_Gap]]                                                           | Core bridge to contradictory utilization configurations                     | active-core    |
+| [[04_Key_Concept_Ledger]]                                                                         | Reusable vocabulary and concept definitions                                 | active-support |
+| [[05_NotebookLM_Question_Bank]]                                                                   | Source interrogation prompts                                                | support        |
+| `06_Visuals/`                                                                                     | Infographic and visual support                                              | support        |
+| `archive_raw_briefs/`                                                                             | Preserved raw briefs, not active argument notes                             | archive        |
 
 ## Classification
 

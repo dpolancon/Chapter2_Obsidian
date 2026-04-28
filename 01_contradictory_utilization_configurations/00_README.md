@@ -18,6 +18,7 @@ This is the main landing bundle.
 
 ## Core object
 
+
 [[contradictory utilization configurations]]
 
 ## Higher-order layer
@@ -34,12 +35,14 @@ A contradictory utilization configuration is a firm-level organizational settlem
 
 ## File order
 
-1. `01_Theoretical_Core_Notebook.md` — full theoretical notebook.
-2. `02_Abstract.md` — article abstract.
-3. `03_Core_Claims_and_Punchlines.md` — compressed claims and locked punchlines.
-4. `04_Figures_and_Tables_Architecture.md` — figure and table architecture.
-5. `05_References_Note.md` — cleaned references note.
-6. `06_Rival_Reading.md` — adversarial reconstruction.
+
+
+1. [[01_Theoretical_Core_Notebook]] — full theoretical notebook.
+2. [[02_Abstract]] — article abstract.
+3. [[03_Core_Claims_and_Punchlines]]  — compressed claims and locked punchlines.
+4. [[04_Figures_and_Tables_Architecture]] — figure and table architecture.
+5. [[05_References_Note]] — cleaned references note.
+6. [[06_Rival_Reading]] — adversarial reconstruction.
 7. `07_Pre_Export_Sanity_Check.md` — ontology and export checks.
 8. `08_Export_Memo.md` — use note and deployment instruction.
 

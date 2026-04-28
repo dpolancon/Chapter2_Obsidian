@@ -30,4 +30,7 @@ Capacity utilization appears in macroeconomic analysis as a measurable ratio, ye
 
 The difficulty is not only empirical but theoretical. Macroeconomic accounts of accumulation and crisis often proceed without specifying how the units making decentralized decisions are internally organized. At the same time, firm-level accounts rarely connect these organizational contradictions to macroeconomic disequilibrium.
 
-This chapter addresses that gap. It reconstructs capacity utilization as the outcome of contradictory organization across levels: the anarchy of decentralized accumulation (Okishio) articulated with the internally divided firm (Vidal). The resulting problem is not how to measure a given ratio, but how to interpret its behavior across structurally unequal positions—here, a canonical central case and Chile as a peripheral formation.
+This chapter addresses that gap. It reconstructs capacity utilization as the outcome of contradictory organization across levels: the anarchy of decentralized accumulation (Okishio) articulated with the internally divided firm     
+
+
+. The resulting problem is not how to measure a given ratio, but how to interpret its behavior across structurally unequal positions—here, a canonical central case and Chile as a peripheral formation.

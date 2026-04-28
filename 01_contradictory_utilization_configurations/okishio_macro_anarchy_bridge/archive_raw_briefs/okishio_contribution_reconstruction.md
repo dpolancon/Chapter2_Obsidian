@@ -11,3 +11,15 @@
 - **On the specific function dictating future accumulation rates:**
 
 **4. The Impossibility of Smooth Reproduction** Okishio demonstrates that "smooth" extended reproduction is practically impossible because it requires highly rigid and fragile mathematical conditions to be simultaneously met. Specifically, there must be a perfect, mathematically precise "composition of production" (the ratio between the production goods and consumption goods sectors), alongside perfect profit realization and balanced real wages. However, because the system relies on the anarchic, private decisions of dispersed capitalists, it is "extremely hard to satisfy" these strict proportional relationships. Because these delicate conditions are **"almost always disturbed in an anarchic capitalist system,"** Okishio famously concludes that **"the condition that smooth reproduction is carried out in the capitalist system is not satisfied at any instant"**. Instead, the "equilibrium" trajectory acts merely as a theoretical benchmark; actual steady growth is never experienced smoothly, but is only achieved "in the long run and on average" through the violent corrections of continuous business cycles and crises.
+
+
+**LINKS**
+[[S01_BriefOkishio]]
+[[S01_Overview_Okishio2022]]
+[[master_ledger]]
+[[okishio_infografic.png]]
+
+
+
+
+

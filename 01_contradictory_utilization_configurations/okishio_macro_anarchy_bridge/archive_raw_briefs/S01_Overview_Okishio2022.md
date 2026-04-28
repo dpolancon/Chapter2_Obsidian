@@ -72,7 +72,7 @@ In terms of the economic and political context of his time, Okishio situates his
 - In summary, Okishio's work is situated in the post-WWII decades of the 1960s and 1970s, written against the backdrop of advanced state-monopoly capitalism, Cold War-era imperialist tensions, rising environmental destruction, and the deep integration of state power and public funding with private monopoly capital
 ---
 
-[[Chapter2_Obsidian/01_contradictory_utilization_configurations/okishio_macro_anarchy_bridge/archive_raw_briefs/S01_P1_Brief_Okishio]]
+[[S01_BriefOkishio]]
 
 ## PART 2: Decentralized Accumulation & Coordination
 
@@ -148,7 +148,8 @@ For example, if the economy experiences general underproduction (excess demand),
 Therefore, Okishio concludes that **the chaotic, cumulative disequilibrium of the capitalist economy is not an accident, but the direct and inevitable result of private capitalists making uncoordinated accumulation decisions based purely on their own private profit**.
 
 
-[[Chapter2_Obsidian/01_contradictory_utilization_configurations/okishio_macro_anarchy_bridge/archive_raw_briefs/S01_P2_Brief_Okishio]]
+[[S01_P2_Brief_Okishio]]
+
 
 ## PART 3: Disproportionality & Disequilibrium
 
@@ -244,7 +245,8 @@ To prevent the system from completely breaking down due to these limits, **an e
 Ultimately, crises are not accidental malfunctions but vital systemic resets. **As long as the capitalist system exists, it must continuously rely on these violent reversals to clear out obsolete capital, discipline labor, and forcibly recreate the conditions necessary for capital accumulation to begin again**.
 
 
-	[[S01_P3_Brief_Okishio]]
+[[S01_P3_Brief_Okishio]]
+
 
 ---
 
@@ -317,8 +319,7 @@ Okishio formally links these two concepts through the metric of the **"rate of 
 
 In short, accumulation of capital is the current action of reinvesting surplus into new production goods, and the growth of productive capacity is the resulting physical consequence of those actions being realized in the future.
 
-
-[[Chapter2_Obsidian/01_contradictory_utilization_configurations/okishio_macro_anarchy_bridge/archive_raw_briefs/S01_P4_Brief_Okishio]]
+[[S01_P4_Brief_Okishio]]
 
 ---
 
@@ -381,7 +382,7 @@ Okishio provides several core examples where the local optimization of individua
 - **The Intention (X):** An individual capitalist introduces new labor-saving technology with the intention of cutting unit costs below the social average, allowing them to beat competitors and capture "extraordinary profits" (special surplus value).
 - **The Outcome (Y):** As competitors are forced to imitate and adopt these new technologies to avoid bankruptcy, the new technology becomes the social standard. Because these labor-saving technologies increase the ratio of "dead labor" (materialized labor in equipment) to "living labor", the _organic composition of production_ for the whole society rises. Collectively, because living labor is the sole source of surplus value, this dynamic forces the long-term average profit rate across the entire economy to fall.
 
-[[Chapter2_Obsidian/01_contradictory_utilization_configurations/okishio_macro_anarchy_bridge/archive_raw_briefs/S01_P5_Brief_Okishio]]
+[[S01_P5_Brief_Okishio]]
 
 ---
 
@@ -444,7 +445,7 @@ Regarding its role as a benchmark, Okishio makes several key points:
 Therefore, smooth reproduction is not an actual tendency that capitalism naturally settles into; it is a conceptual tool used to understand the necessary average conditions that the system only realizes through continuous, chaotic fluctuations and crises.
 
 
-[[Chapter2_Obsidian/01_contradictory_utilization_configurations/okishio_macro_anarchy_bridge/archive_raw_briefs/S01_P6_Brief_Okishio]]
+[[S01_P6_Brief_Okishio]]
 
 ---
 
@@ -467,6 +468,8 @@ Therefore, smooth reproduction is not an actual tendency that capitalism natural
 > _What's the micro-macro gap in his theory?_
 
 ---
+
+[[S01_P7_Okishio]]
 
 ## PART 8: Quick Check
 
