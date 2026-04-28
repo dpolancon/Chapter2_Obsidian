@@ -5,7 +5,10 @@ layer: design
 design_role: chapter_constitution
 scope: chapter2
 priority: core
+depends_on: 00E_Chapter2_PaperFacing_Constitution, 00E_Chapter2_PaperFacing_MAP
 ---
+
+
 ## Paper-facing Chapter 2 — constitutional core
 
 ### Governing problem
@@ -26,7 +29,7 @@ The chapter does not deliver the full crisis theory, the full dependency deploym
 
 That is the constitution.
 
-
+Link to constitutional note: [[00E_Chapter2_PaperFacing_Constitution]]
 
 
 # Chapter 2 — Constitutional Statement
@@ -250,3 +253,4 @@ So not:
 It should feel like:  
 **a sharp reconstruction of one problem**
 
+Link to paper facing map: [[00N_Chapter2_PaperFacing_MAP]]

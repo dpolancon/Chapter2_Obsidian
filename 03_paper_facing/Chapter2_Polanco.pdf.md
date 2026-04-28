@@ -1,3 +1,5 @@
+[[Chapter2_References]]
+[[00N_Chapter2_PaperFacing_Notes]]
 									⋮ (top right) → Export to PDF
 # Chapter 2: Capacity Utilization as a Structurally Mediated Object
 
