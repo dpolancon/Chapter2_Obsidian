@@ -216,3 +216,18 @@ Do not scatter econometric references unless the note needs standalone portabili
 ## Bridge note
 
 - [[00_Okishio_Vidal_Bridge]]
+
+## Constitutional subordination
+
+This empirical strategy is subordinated to:
+
+- [[00_constitutive_core/01_Governing_Memo|Governing memo]]
+- [[00_constitutive_core/01A_Design_vs_Presentation_Firewall|Design vs presentation firewall]]
+- [[00_constitutive_core/02_Research_Problem|Research problem]]
+- [[00_constitutive_core/02A_Research_Question|Research question]]
+- [[00_constitutive_core/02B_Objectives_and_Contribution|Objectives and contribution]]
+- [[00_constitutive_core/02C_Hypotheses|Hypotheses]]
+- [[00_constitutive_core/02D_Mechanism_Map|Mechanism map]]
+- [[00_constitutive_core/03B_Process_Tracing_Playbook|Process-tracing playbook]]
+
+The identification framework may refine estimation procedures, diagnostics, and robustness checks. It may not redefine the theoretical object, the mechanism chain, or the regime logic.

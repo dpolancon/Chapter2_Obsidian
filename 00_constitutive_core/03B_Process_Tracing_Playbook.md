@@ -93,3 +93,11 @@ Those belong to the programmatic horizon unless directly required by the present
 ## Link
 
 Constrained by: [[Chapter2_Obsidian/00_constitutive_core/01_Governing_Memo]]
+
+## Empirical implementation
+
+Implemented downstream in:
+
+- [[02_econometrics/M10_Empirical_Identification_Framework|Empirical identification framework]]
+
+The econometric layer is subordinate to this playbook. It operationalizes the productive-capacity and recapitalization corridors; it does not redefine them.
