@@ -1,51 +1,50 @@
 ---
-type: note
-status: active
-layer: method
-design_role: parameter_stability_window_rule
-scope: chapter2_core_support
-stage: S30
+type: "note"
+status: "active"
+layer: "method"
+design_role: "parameter_stability_window_rule"
+scope: "chapter2_core_support"
+stage: "S30"
 related_to:
-  - M10_Empirical_Identification_Framework
-  - N02_SuperConsistency
-  - R03_super_consistency_mechanics_hinge
-  - R04_FMOLS_structural_preservation
-  - R05_LRV_kernel_bandwidth_regime_misalignment
-  - R06_IMOLS_integration_ladder_reconstruction
-  - R08_threshold_break_diagnostics_to_FGLS
-  - L00_Econometrics_References
-priority: high
+  - "M10_Empirical_Identification_Framework"
+  - "N02_SuperConsistency"
+  - "R03_super_consistency_mechanics_hinge"
+  - "R04_FMOLS_structural_preservation"
+  - "R05_LRV_kernel_bandwidth_regime_misalignment"
+  - "R06_IMOLS_integration_ladder_reconstruction"
+  - "R08_threshold_break_diagnostics_to_FGLS"
+  - "L00_Econometrics_References"
+priority: "high"
 estimators:
-  - FM-OLS
-  - IM-OLS
-  - DOLS
+  - "FM-OLS"
+  - "IM-OLS"
+  - "DOLS"
 empirical_inputs:
-  - y_t
-  - k_t
-  - omega_t
-  - omega_k_t
-  - s_t_proxy
-  - phi_t_proxy
-  - s_t_proxy_cc
-  - phi_t_proxy_cc
-  - pK_relative_ME_NRC
-method_classification:
-  core:
-    - Hansen-type parameter instability tests for I(1) regressions
-  supporting:
-    - Gregory-Hansen one-break cointegration tests
-    - Andrews unknown-break logic
-  diagnostic:
-    - rolling-window estimates
-    - recursive estimates
-    - Johansen recursive constancy diagnostics
-  too_heavy_for_main_paper:
-    - Bai-Perron multiple-break methods
-    - Kejriwal-Perron multiple breaks in cointegrated regressions
-  not_appropriate:
-    - ordinary OLS break tests as primary evidence for I(1) cointegrating regressions
-created: 2026-05-13
-updated: 2026-05-13
+  - "y_t"
+  - "k_t"
+  - "omega_t"
+  - "omega_k_t"
+  - "s_t_proxy"
+  - "phi_t_proxy"
+  - "s_t_proxy_cc"
+  - "phi_t_proxy_cc"
+  - "pK_relative_ME_NRC"
+method_classification_core:
+  - "Hansen-type parameter instability tests for I(1) regressions"
+method_classification_supporting:
+  - "Gregory-Hansen one-break cointegration tests"
+  - "Andrews unknown-break logic"
+method_classification_diagnostic:
+  - "rolling-window estimates"
+  - "recursive estimates"
+  - "Johansen recursive constancy diagnostics"
+method_classification_too_heavy_for_main_paper:
+  - "Bai-Perron multiple-break methods"
+  - "Kejriwal-Perron multiple breaks in cointegrated regressions"
+method_classification_not_appropriate:
+  - "ordinary OLS break tests as primary evidence for I(1) cointegrating regressions"
+created: "2026-05-13"
+updated: "2026-05-14"
 ---
 
 # Parameter Stability and Window Discipline in S30
@@ -68,7 +67,7 @@ $$
 \text{diagnostic rolling/recursive inspection}.
 $$
 
-The window is never promoted because it produces the desired sign, magnitude, or significance. It is promoted only if it survives the estimator, neighborhood, collinearity, and stability checks.
+The window is never promoted because it produces the desired sign, magnitude, or significance. It is promoted only if it survives the hierarchical estimator check, neighborhood check, collinearity check, and stability-evidence check.
 
 ---
 
@@ -235,21 +234,57 @@ The main S30 protocol should be austere and sequential.
 5. Use IM-OLS as the robustness estimator.
 6. Use DOLS as the fragility and stress diagnostic.
 7. Record effective sample size and regressor count for every window-estimator pair.
-8. Apply Hansen-type stability tests, or the closest implementable equivalent, to the main specification.
+8. Apply Hansen-type stability tests, or the closest implementable equivalent, to the main FM-OLS specification as preferred formal stability evidence.
 9. Use rolling and recursive estimates as diagnostic plots only.
 10. Run Gregory--Hansen only if the question becomes one unknown regime shift in the cointegrating relation.
 11. Reserve Bai--Perron/Kejriwal--Perron for optional appendix material if multiple breaks become substantively unavoidable.
-12. Promote a specification or window only if it survives estimator, neighborhood, collinearity, and stability checks.
+12. Promote a specification or window only if it survives the hierarchical estimator check, neighborhood check, collinearity check, and stability-evidence check.
 
 ---
 
 ## 10. Promotion rule
 
-A window or specification can be promoted only if all four checks are passed.
+A window or specification can be promoted only if the relevant checks are passed. These checks are not symmetric.
 
-### Estimator check
+### Estimator hierarchy and veto discipline
 
-The long-run coefficient pattern must not be an artifact of one estimator. FM-OLS should carry the main interpretation; IM-OLS should not overturn it; DOLS should reveal fragility rather than silently determine the result.
+The estimator hierarchy is asymmetric.
+
+FM-OLS is the main estimator for the long-run transformation relation because it preserves the theoretical regressor matrix.
+
+IM-OLS is the robustness estimator. It may overturn the interpretation if it substantively contradicts FM-OLS.
+
+DOLS is the fragility and stress diagnostic. It may not independently veto admissibility.
+
+Operational rule:
+
+- FM-OLS carries the primary interpretation.
+- IM-OLS checks whether the long-run coefficient pattern survives an estimator that avoids both DOLS-style lead-lag augmentation and FM-OLS kernel/bandwidth tuning.
+- DOLS records fragility from dynamic augmentation, effective-sample loss, and lead-lag sensitivity.
+- DOLS contradiction should be reported as fragility evidence, not as automatic evidence that the long-run transformation relation itself fails.
+
+This rule is especially important for interaction specifications such as:
+
+$$
+y_t = c + \beta_1 k_t + \beta_2(\omega_t k_t) + \xi_t.
+$$
+
+In such cases, DOLS lead-lag expansion may generate auxiliary differenced terms without structural interpretation for productive-capacity reconstruction. Those terms can stress the coefficient recovery problem, but they do not become part of the transformation relation.
+
+Therefore, DOLS may generate:
+
+- fragility flags;
+- sample-size warnings;
+- lead-lag contamination warnings;
+- interaction-augmentation warnings;
+- specification notes.
+
+DOLS may not generate:
+
+- a hard veto over FM-OLS when IM-OLS does not overturn the FM-OLS interpretation;
+- an alternative reconstruction equation;
+- a regime boundary;
+- a substitute specification.
 
 ### Neighborhood check
 
@@ -259,11 +294,25 @@ Results should not collapse under small changes around the historical window bou
 
 The composition proxies must not be so collinear that the coefficient is essentially a rotation of the regressor matrix.
 
-### Stability check
+### Stability-evidence check
 
 Formal or proxy stability evidence must not contradict the claimed interpretation.
 
+Hansen-type evidence is the preferred formal stability diagnostic when implementable. If exact Hansen-type testing is unavailable, the replacement must be labeled as an operational proxy.
+
+Stability evidence should be classified as evidence about the admissibility of the cointegrating relation, not as a direct estimator of productive capacity.
+
+### Promotion interpretation
+
 If one check fails, the result may still be reported. It should not be promoted as the benchmark S30 finding.
+
+If DOLS alone contradicts FM-OLS while IM-OLS remains non-contradictory, the admissible interpretation is:
+
+> the candidate remains possible only under a fragility flag.
+
+It is not:
+
+> the candidate is rejected because DOLS vetoed it.
 
 ---
 
@@ -283,11 +332,13 @@ Do not put Bai--Perron/Kejriwal--Perron in the main paper unless multiple-break 
 
 Do not interpret instability in Tier-B ME--NRC proxies as immediate evidence that the theoretical transformation relation itself broke. Proxy fragility must be separated from structural instability.
 
+Do not allow DOLS to operate as a co-equal veto over FM-OLS and IM-OLS. DOLS is a fragility diagnostic because its lead-lag augmentation alters the regressor matrix and may introduce nuisance dynamics that do not belong to the productive-capacity reconstruction path.
+
 ---
 
 ## 12. Locked sentence for reuse
 
-**S30 treats historical windows as pre-declared benchmark contrasts and parameter-stability evidence as a disciplinary screen. Rolling and recursive estimates diagnose sensitivity; they do not identify regimes. Gregory--Hansen is reserved for the one-break cointegration question, while Bai--Perron/Kejriwal--Perron remain appendix-level tools unless multiple-break dating becomes central to the chapter.**
+**S30 treats historical windows as pre-declared benchmark contrasts and parameter-stability evidence as a disciplinary screen. FM-OLS carries the main reconstruction interpretation, IM-OLS checks robustness, and DOLS records fragility from dynamic augmentation rather than vetoing admissibility by itself. Rolling and recursive estimates diagnose sensitivity; they do not identify regimes. Gregory--Hansen is reserved for the one-break cointegration question, while Bai--Perron/Kejriwal--Perron remain appendix-level tools unless multiple-break dating becomes central to the chapter.**
 
 ---
 
