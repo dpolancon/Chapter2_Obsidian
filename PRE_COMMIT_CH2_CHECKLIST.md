@@ -14,3 +14,4 @@ Before committing, verify:
 - [ ] Does this change avoid editing generated outputs?
 - [ ] Are all changed files intentional?
 - [ ] Is the diff small enough to audit?
+	
