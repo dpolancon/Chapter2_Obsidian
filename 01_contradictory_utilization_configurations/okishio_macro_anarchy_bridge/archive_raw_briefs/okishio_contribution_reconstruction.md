@@ -14,10 +14,10 @@
 
 
 **LINKS**
-[[S01_BriefOkishio]]
-[[S01_Overview_Okishio2022]]
-[[master_ledger]]
-[[okishio_infografic.png]]
+[[Chapter2_Obsidian/01_contradictory_utilization_configurations/okishio_macro_anarchy_bridge/archive_raw_briefs/S01_BriefOkishio]]
+[[Chapter2_Obsidian/01_contradictory_utilization_configurations/okishio_macro_anarchy_bridge/archive_raw_briefs/S01_Overview_Okishio2022]]
+[[Chapter2_Obsidian/01_contradictory_utilization_configurations/okishio_macro_anarchy_bridge/archive_raw_briefs/master_ledger]]
+[[Paper_CU/_legacy/overview_okishio/others/okishio_infografic.png]]
 
 
 

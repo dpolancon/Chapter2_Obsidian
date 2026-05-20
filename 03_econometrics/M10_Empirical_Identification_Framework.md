@@ -182,18 +182,18 @@ This sequence blocks residual identification and keeps productive capacity as th
 
 ## 8. Operational estimator map
 
-| Role | Estimator / method | Function | Source note |
-|---|---|---|---|
-| Object definition | Structural reconstruction | Defines $\mu_t$ as derived ratio | [[N01_CapacityUtilization_StructuralObject]] |
-| Residual guardrail | Identification rule | Blocks residual ontology | [[R01_residual_vs_structural_identification]] |
-| Main reconstruction | FM-OLS | Long-run log-level coefficient recovery | [[R04_FMOLS_structural_preservation]] |
-| Robustness | IM-OLS | Coefficient robustness without DOLS/FM-OLS tuning structure | [[R06_IMOLS_integration_ladder_reconstruction]] |
-| Fragility | DOLS | Stress test via lead-lag absorption | [[R02_DOLS_reconstruction_dilemma]] |
-| Estimator taxonomy | Super-consistency hinge | Maps DOLS / FM-OLS / IM-OLS | [[R03_super_consistency_mechanics_hinge]] |
-| FM-OLS warning | LRV/kernel layer | Flags covariance-window smearing | [[R05_LRV_kernel_bandwidth_regime_misalignment]] |
-| System admissibility | VECM / Johansen | Cointegration rank/system check | [[L00_Econometrics_References]] |
-| Diagnostic ladder | Haldrup layer | Unit roots, breaks, nonlinearities | [[R08_threshold_break_diagnostics_to_FGLS]] |
-| Regime estimation | Threshold-FGLS | Regime-specific coefficient recovery after admissibility | [[R07_FGLS_threshold_cointegration_admissibility]] |
+| Role                 | Estimator / method        | Function                                                    | Source note                                        |
+| -------------------- | ------------------------- | ----------------------------------------------------------- | -------------------------------------------------- |
+| Object definition    | Structural reconstruction | Defines $\mu_t$ as derived ratio                            | [[N01_CapacityUtilization_StructuralObject]]       |
+| Residual guardrail   | Identification rule       | Blocks residual ontology                                    | [[R01_residual_vs_structural_identification]]      |
+| Main reconstruction  | FM-OLS                    | Long-run log-level coefficient recovery                     | [[R04_FMOLS_structural_preservation]]              |
+| Robustness           | IM-OLS                    | Coefficient robustness without DOLS/FM-OLS tuning structure | [[R06_IMOLS_integration_ladder_reconstruction]]    |
+| Fragility            | DOLS                      | Stress test via lead-lag absorption                         | [[R02_DOLS_reconstruction_dilemma]]                |
+| Estimator taxonomy   | Super-consistency hinge   | Maps DOLS / FM-OLS / IM-OLS                                 | [[R03_super_consistency_mechanics_hinge]]          |
+| FM-OLS warning       | LRV/kernel layer          | Flags covariance-window smearing                            | [[R05_LRV_kernel_bandwidth_regime_misalignment]]   |
+| System admissibility | VECM / Johansen           | Cointegration rank/system check                             | [[L00_Econometrics_References]]                    |
+| Diagnostic ladder    | Haldrup layer             | Unit roots, breaks, nonlinearities                          | [[R08_threshold_break_diagnostics_to_FGLS]]        |
+| Regime estimation    | Threshold-FGLS            | Regime-specific coefficient recovery after admissibility    | [[R07_FGLS_threshold_cointegration_admissibility]] |
 
 ---
 
@@ -215,7 +215,7 @@ Do not scatter econometric references unless the note needs standalone portabili
 
 ## Bridge note
 
-- [[00_Okishio_Vidal_Bridge]]
+- [[Chapter2_Obsidian/01_contradictory_utilization_configurations/00_Okishio_Vidal_Bridge]]
 
 ## Constitutional subordination
 

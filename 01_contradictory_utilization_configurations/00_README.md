@@ -37,12 +37,12 @@ A contradictory utilization configuration is a firm-level organizational settlem
 
 
 
-1. [[01_Theoretical_Core_Notebook]] — full theoretical notebook.
-2. [[02_Abstract]] — article abstract.
-3. [[03_Core_Claims_and_Punchlines]]  — compressed claims and locked punchlines.
-4. [[04_Figures_and_Tables_Architecture]] — figure and table architecture.
-5. [[05_References_Note]] — cleaned references note.
-6. [[06_Rival_Reading]] — adversarial reconstruction.
+1. [[Chapter2_Obsidian/01_contradictory_utilization_configurations/01_Theoretical_Core_Notebook]] — full theoretical notebook.
+2. [[Chapter2_Obsidian/01_contradictory_utilization_configurations/02_Abstract]] — article abstract.
+3. [[Chapter2_Obsidian/01_contradictory_utilization_configurations/03_Core_Claims_and_Punchlines]]  — compressed claims and locked punchlines.
+4. [[Chapter2_Obsidian/01_contradictory_utilization_configurations/04_Figures_and_Tables_Architecture]] — figure and table architecture.
+5. [[Chapter2_Obsidian/01_contradictory_utilization_configurations/05_References_Note]] — cleaned references note.
+6. [[Chapter2_Obsidian/01_contradictory_utilization_configurations/06_Rival_Reading]] — adversarial reconstruction.
 7. `07_Pre_Export_Sanity_Check.md` — ontology and export checks.
 8. `08_Export_Memo.md` — use note and deployment instruction.
 

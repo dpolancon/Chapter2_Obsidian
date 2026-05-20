@@ -35,12 +35,12 @@ The transformation elasticity θ is the empirical hinge through which these conf
 
 ## Vault links
 
-- [[01_Theoretical_Core_Notebook]]
+- [[Chapter2_Obsidian/01_contradictory_utilization_configurations/01_Theoretical_Core_Notebook]]
 - [[02D_Mechanism_Map]]
 - [[M10_Empirical_Identification_Framework]]
 - [[00N_Chapter2_PaperFacing_MAP]]
 
 ## Source Overviews 
 
--  [[okishio_contribution_reconstruction]]
+-  [[Chapter2_Obsidian/01_contradictory_utilization_configurations/okishio_macro_anarchy_bridge/archive_raw_briefs/okishio_contribution_reconstruction]]
 - 

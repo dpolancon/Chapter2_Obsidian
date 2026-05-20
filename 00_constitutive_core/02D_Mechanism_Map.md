@@ -63,4 +63,4 @@ It does not yet require:
 
 ## Bridge note
 
-- [[00_Okishio_Vidal_Bridge]]
+- [[Chapter2_Obsidian/01_contradictory_utilization_configurations/00_Okishio_Vidal_Bridge]]

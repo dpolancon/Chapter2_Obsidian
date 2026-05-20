@@ -256,4 +256,4 @@ If any section cannot be defended as serving this sentence, it should be cut or 
 
 ## Bridge note
 
-- [[00_Okishio_Vidal_Bridge]]
+- [[Chapter2_Obsidian/01_contradictory_utilization_configurations/00_Okishio_Vidal_Bridge]]
