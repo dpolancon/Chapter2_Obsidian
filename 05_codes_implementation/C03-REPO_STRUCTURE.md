@@ -1,1339 +1,453 @@
 ---
-type: repo_governance_memo
+type: implementation_memo
 status: active
-layer: implementation_design
-design_role: target_structure_and_code_stage_implementation
+layer: code_stage_design
+design_role: us_s30_formal_stability_protocol
 scope: chapter2_results_repo
+country: US
+stage: S30
 repo: Capacity-Utilization-US_Chile
-branch_context: curation/local-current-state-2026-05-03
+s30_anchor_authority: false
+s40_anchor_governed_by: D03_capacity_utilization_level_anchor_pinch_year_protocol
+us_s40_preferred_anchor_year: 1973
+us_s40_anchor_condition: mu_US_1973_equals_1
+us_s40_anchor_type: point_year_external_pinch
+us_s40_anchor_source: FRB_maximum_utilization_series
+window_average_anchor_allowed_as_baseline: false
+created: 2026-05-14
+updated: 2026-05-14
 related_to:
-  - H00_Okishio_Vidal_Decentralized_Accumulation
-  - H01_Cajas_to_Transformation_Elasticity
-  - H02_Theta_to_Empirical_Coefficients
-  - N01_Two_Corridor_Transformation_Elasticity
-  - N02_Peripheral_Mechanization_Constraint
-  - N04_Composition_of_Accumulation_and_Transformation
-  - R01_Marx_Okishio_Regime_Diagnostic_Guardrail
-  - R02_Threshold_Model_Peripheral_Diagnostic
-  - R03_Interpretation_of_Theta_as_Contradictory_Object
-  - R04_What_is_Identified_vs_Reconstructed
+  - US_S30_SUBSTANTIVE_REVIEW_2026-05-14_PRELIMINARY
+  - R09_structural_break_protocol
   - M10_Empirical_Identification_Framework
-  - 03B_Process_Tracing_Playbook
-created: 2026-05-05
+  - N02_SuperConsistency
+  - D03_capacity_utilization_level_anchor_pinch_year_protocol
+  - D02_PriceDeflator_Protocol_K_Composition
 ---
 
-# Target repo structure and code-stage implementation
+# C04 - US S30 Stability Protocol
 
 ## 0. Purpose
 
-This memo defines the target structure for the `Capacity-Utilization-US_Chile` repository before promoting or rewriting scripts.
+This memo defines the bounded coding protocol for the US S30 formal stability layer.
 
-It is a repo-governance note for implementation.
+It does not authorize S40 code.
 
-It does not promote files.  
-It does not rename files.  
-It does not authorize deletion.  
-It defines the architecture that code promotion must follow.
+It does not reconstruct productive capacity.
 
-The repository should function as the **data-management and results-production engine** for Chapter 2.
+It does not compute utilization.
 
-It should not reproduce the Obsidian vault.
+It does not choose the utilization level anchor.
 
-The vault governs the theoretical and methodological contract.  
-The repo executes that contract through data construction, admissibility checks, coefficient recovery, reconstruction, diagnostics, and result-package production.
+It does not expand the estimator grid.
 
----
+It does not touch Chile.
 
-# 1. Repository role lock
+The S30 task is to adjudicate whether the existing US S30 results contain a restricted B1 pathway that is admissible enough to open later S40 work under an explicit fragility discipline.
 
-The repository should contain:
+The cointegrating relation remains the primary empirical object.
 
-- reproducible data construction;
-- source-of-truth panels;
-- composition and mechanization variables;
-- periodization and stability checks;
-- long-run transformation relation estimates;
-- reconstructed productive capacity;
-- derived capacity utilization;
-- profitability and recapitalization corridor outputs;
-- diagnostics and robustness checks;
-- paper-facing result packages.
+Formal stability evidence supports the S30 adjudication rather than replacing the object-level assessment.
 
-The repository should not contain:
+The relevant S30 adjudication script is:
 
-- qualitative source packs;
-- manuscript reservoirs;
-- Obsidian governance notes except when mirrored as implementation locks;
-- broad theoretical drafting infrastructure;
-- unrelated corridor archives.
+`codes/US_S30_formal_stability_adjudication.R`
 
-Those belong in the vault or in archived artifact spaces.
+The script should consume the existing US S30 outputs and write additional S30 adjudication artifacts.
+
+It should not overwrite the estimator grid as if the prior S30 pass had already promoted a candidate.
 
 ---
 
-# 2. Governing architecture
+## 1. Anchor boundary rule
 
-The active repo structure should follow this division:
+S30 adjudicates whether S40 may open.
 
-```text
-codes/
-data/
-output/
-artifacts/
-```
+S30 does not choose the utilization level anchor.
 
-## 2.1 `codes/`
+The S30 stability protocol decides whether a restricted B1 pathway is admissible for downstream reconstruction. It does not determine the level at which reconstructed utilization equals one.
 
-`codes/` is the flat production-command surface.
+That level anchor is governed by:
 
-There should be **no country folders inside `codes/`**.
+`D03_capacity_utilization_level_anchor_pinch_year_protocol`
 
-Country and comparative scope should be encoded in filenames:
+For the United States, the preferred S40 baseline anchor is:
 
-- `CL_` = Chile
-- `US_` = United States
-- `CMP_` = comparative / cross-case
+$$
+\mu_{US,1973}=1
+$$
 
-Stage should also be encoded in filenames:
+This is a point-year full-capacity pinch anchor based on the FRB utilization-series calibration logic.
 
-- `S00`, `S10`, `S20`, `S30`, `S40`, `S50`, `S60`, `S70`, `S90`, `S99`
+It is distinct from:
 
-The naming convention is:
+- the S30 coefficient-recovery window;
+- the S30 benchmark window;
+- the S30 stability gate;
+- rolling or recursive stability diagnostics;
+- DOLS fragility diagnostics.
 
-```text
-CASE_STAGE_object_task.R
-```
+The Fordist-core window may remain relevant for S30 estimation, stability comparison, or historical benchmarking.
 
-Examples:
+It must not be promoted by S30 into a utilization-level normalization such as:
 
-```text
-CL_S10_source_of_truth_panel.R
-US_S30_transformation_relation_fmols.R
-CMP_S70_structural_comparison.R
-```
+$$
+\overline{\mu}_{1945-1973}=1
+$$
 
-## 2.2 `data/`
+That window-average normalization is diagnostic only unless separately declared as a robustness normalization.
 
-`data/` should remain source-oriented and panel-oriented.
+Locked rule:
 
-Country folders are acceptable here because raw and processed sources are usually country-specific.
-
-```text
-data/
-  raw/
-    Chile/
-    US/
-    WBOP/
-  processed/
-    Chile/
-    US/
-    WBOP/
-  final/
-    chile/
-    US/
-    comparative/
-  metadata/
-```
-
-## 2.3 `output/`
-
-`output/` should be differentiated by analytical destination:
-
-```text
-output/
-  chile/
-  US/
-  comparative/
-```
-
-Each destination should mirror the stage logic.
-
-```text
-output/chile/
-  S10_source_of_truth/
-  S20_composition_admissibility/
-  S30_transformation_relation/
-  S40_theta_tot_mu/
-  S50_thetaM_corridor_interpretation/
-  S60_peripheral_constraint/
-  S90_diagnostics/
-  S99_results_package/
-```
-
-Equivalent structures should be used for:
-
-```text
-output/US/
-output/comparative/
-```
-
-## 2.4 `artifacts/`
-
-`artifacts/` stores repo governance, curation logs, archived material, and reconstruction plans.
-
-```text
-artifacts/
-  repo_state_logs/
-  archived_chapter_material/
-  archived_corridors/
-  code_recycling_memos/
-```
+> S30 opens or blocks S40. D03 governs the S40 utilization level anchor.
 
 ---
 
-# 3. Analytical lock behind the repo structure
+## 2. Current S30 status
 
-The repo architecture is not cosmetic.
+The existing S30 run produced no clean unrestricted benchmark candidate under the declared proxy-stability discipline.
 
-It encodes the analytical distinction between:
+The S30 evidence nevertheless identified a restricted B1 pathway that could be evaluated under a formal stability gate.
 
-$$
-\theta_t^M
-$$
+The stability evidence is useful but incomplete unless the formal S30 adjudication layer records whether Hansen-type stability evidence is exact, proxy-based, mixed, contradictory, or unavailable.
 
-and:
+The existing stability layer should therefore be treated as a formal adjudication problem, not as a direct authorization of S40.
 
-$$
-\theta_t^{tot}
-$$
-
-where:
+The target object remains:
 
 $$
-\theta_t^M
+y_t \sim k_t + \omega^K_t
 $$
 
-is the structural machinery-specific transformation elasticity, while:
-
-$$
-\theta_t^{tot}
-=
-s_t\theta_t^M+(1-s_t)\theta^O
-$$
-
-is the composition-weighted transformation elasticity identified in the data.
-
-The empirical model does not directly estimate the machinery-specific transformation elasticity.
-
-It estimates an aggregate, composition-weighted object from which the machinery-specific mechanism is interpreted.
-
-The identification guardrail is:
-
-- coefficients are estimated;
-- $$\theta_t^{tot}$$ is identified;
-- $$\theta_t^M$$ is inferred or interpreted through the model structure;
-- productive capacity is reconstructed;
-- utilization is derived after reconstruction.
+for the restricted B1 pathway.
 
 ---
 
-# 4. Core theoretical locks translated into implementation
+## 3. Specification disposition
 
-## 4.1 θ is contradictory, not optimal
+The S30 code must use the following adjudicated disposition, regardless of the original `promotion_eligible` flags in the first-pass specification register.
 
-The transformation elasticity must not be treated as:
+| spec_id | Adjudicated role | S40 eligibility after this memo | Treatment in next code |
+|---|---|---:|---|
+| `SPEC_B0_CAPITAL_ONLY` | supporting benchmark | no | Keep as baseline reference only. It may be reported beside B1 to contextualize stability, but it cannot carry S40. |
+| `SPEC_B1_WAGE_BASELINE` | leading restricted candidate under review | conditional | This is the only specification eligible for restricted S40 pathway adjudication. It is not promoted unless it passes the hierarchical gate below. |
+| `SPEC_C1_COMPOSITION_STOCK` | mechanism evidence | no | Keep as diagnostic/mechanism evidence. It can show that the ME-NRC composition proxy matters, but it cannot define the reconstruction specification. |
+| `SPEC_C2_FULL_COMPOSITION` | diagnostic-only | no | Demote from core eligibility because severe collinearity makes the full interaction structure non-promotable. |
+| `SPEC_D1_CURRENT_COST_DIAGNOSTIC` | diagnostic-only | no | Keep only as valuation-composition diagnostic. |
+| `SPEC_D2_PRICE_WEDGE_DIAGNOSTIC` | diagnostic-only | no | Keep only as relative-price wedge diagnostic. |
 
-- an efficiency parameter;
-- a production-function elasticity;
-- a technological constant;
-- the result of optimal allocation;
-- the outcome of a representative firm.
+Operationally, the S30 adjudication output should include a fresh disposition table rather than silently editing the historical first-pass register.
 
-It should be treated as:
+The first-pass register records what was attempted.
 
-> the historically realized transformation of accumulation into productive capacity under decentralized accumulation and internally contradictory firm behavior.
-
-## 4.2 q is realized mechanization, not pure optimum
-
-The coherent mechanization solution:
-
-$$
-q^*(\omega)
-$$
-
-is a benchmark or limiting case.
-
-Actual mechanization:
-
-$$
-q_t
-$$
-
-is a realized outcome of contradictory internal responses to market pressure.
-
-## 4.3 Composition is structurally necessary
-
-All accumulation contributes to productive capacity, but not symmetrically.
-
-Machinery and equipment:
-
-- build capacity;
-- transmit distributive conflict into mechanization and productivity.
-
-Non-machinery capital and infrastructure:
-
-- build capacity;
-- do not directly transmit mechanization or distributive conflict.
-
-Therefore, the machinery share is required:
-
-$$
-s_t=\frac{K_t^M}{K_t}
-$$
-
-and the machinery share of accumulation is required:
-
-$$
-\varphi_t=\frac{I_t^M}{I_t^A}
-$$
-
-## 4.4 Peripheral constraint is not optional
-
-For Chile, the external mechanization wedge is:
-
-$$
-\mathcal{E}_t=\Lambda_t\varphi_t
-$$
-
-where:
-
-$$
-\Lambda_t
-$$
-
-is the shadow cost or proxy for foreign-exchange pressure.
-
-The preferred threshold dummy is:
-
-$$
-D_t(\hat{\gamma})=\mathbf{1}\{\mathcal{E}_t>\hat{\gamma}\}
-$$
-
-This dummy should be estimated or constructed only after admissibility checks.
+The new table records what remains admissible after substantive review.
 
 ---
 
-# 5. Stage map
+## 4. Candidate eligibility rule
 
-## S00 — Setup, paths, packages, and helpers
+Only `SPEC_B1_WAGE_BASELINE` remains eligible for restricted S40 pathway review.
 
-Purpose:
+Eligibility means only:
 
-Create reusable infrastructure.
+`eligible_for_restricted_s40_adjudication = TRUE`
 
-S00 should contain:
+It does not mean:
 
-- path definitions;
-- package loading;
-- helper functions;
-- plotting themes;
-- IO utilities;
-- shared transformations.
+`promoted_to_S40 = TRUE`
 
-Examples:
+B1 can move forward only as a restricted candidate if it passes the object-admissibility tier and receives supportive or mixed stability evidence using the existing S30 variable set, estimator roles, and historical-window register.
 
-```text
-S00_paths.R
-S00_packages.R
-S00_helpers_io.R
-S00_helpers_plots.R
-S00_helpers_econometrics.R
-```
+If the evidence is mixed, any later S40 output must carry a fragility flag.
 
-S00 should not run country-specific estimation.
+If the evidence is contradictory or unavailable, the US benchmark stops at S30.
+
+No composition-augmented specification should be promoted as a substitute if B1 fails.
+
+C1 remains mechanism evidence.
+
+C2 remains diagnostic-only.
+
+D1 and D2 remain valuation and price-wedge diagnostics.
 
 ---
 
-## S10 — Source-of-truth data construction
+## 5. Estimator hierarchy
 
-Purpose:
-
-Build canonical country panels.
-
-S10 does not run econometrics.  
-S10 does not reconstruct utilization.  
-S10 does not produce final paper-facing figures.
-
-Expected tasks:
-
-- harmonize raw data;
-- construct real output;
-- construct total capital;
-- construct machinery and non-machinery capital where possible;
-- construct wage share;
-- construct price indexes;
-- construct profitability inputs;
-- construct external-constraint candidates;
-- export canonical panels.
-
-Examples:
-
-```text
-CL_S10_source_of_truth_panel.R
-US_S10_source_of_truth_panel.R
-CMP_S10_panel_alignment.R
-```
-
----
-
-## S20 — Composition, mechanization, periodization, and admissibility
-
-Purpose:
-
-Construct the objects required before coefficient recovery.
-
-S20 is the gate between source data and estimation.
-
-Expected objects:
-
-$$
-s_t=\frac{K_t^M}{K_t}
-$$
-
-$$
-\varphi_t=\frac{I_t^M}{I_t^A}
-$$
-
-$$
-\mathcal{E}_t=\Lambda_t\varphi_t
-$$
-
-$$
-D_t(\hat{\gamma})=\mathbf{1}\{\mathcal{E}_t>\hat{\gamma}\}
-$$
-
-Expected tasks:
-
-- construct composition variables;
-- construct mechanization variables;
-- construct external-constraint index or proxies;
-- define candidate historical windows;
-- test integration order;
-- check deterministic components;
-- check structural breaks;
-- check parameter stability;
-- estimate or prepare threshold candidates;
-- construct the estimated threshold dummy only if admissible.
-
-Examples:
-
-```text
-CL_S20_composition_mechanization_external_constraint.R
-CL_S20_periodization_stability_admissibility.R
-CL_S20_external_constraint_threshold_index.R
-US_S20_composition_stability_admissibility.R
-CMP_S20_comparative_window_register.R
-```
-
-S20 is mandatory.
-
-No S30 coefficient recovery should be treated as definitive unless its S20 assumptions are logged.
-
----
-
-## S30 — Reduced-form transformation coefficient recovery
-
-Purpose:
-
-Estimate the reduced-form long-run transformation relation.
-
-S30 estimates coefficients.  
-S30 does not reconstruct utilization.
-
-Estimator-role lock:
+The S30 estimator hierarchy is:
 
 - FM-OLS = main estimator;
 - IM-OLS = robustness estimator;
 - DOLS = fragility / stress diagnostic.
 
-Examples:
+FM-OLS carries the main S30 object interpretation.
 
-```text
-CL_S30_transformation_relation_fmols.R
-CL_S30_transformation_relation_imols.R
-CL_S30_transformation_relation_dols_fragility.R
-US_S30_transformation_relation_fmols.R
-US_S30_transformation_relation_imols.R
-US_S30_transformation_relation_dols_fragility.R
-```
+IM-OLS checks whether the FM-OLS result is robust to a different super-consistent estimator logic.
 
-For Chile, the S30 equation should allow composition-weighted transformation logic.
+DOLS does not carry the reconstruction pathway.
 
-The relevant interaction surface may include:
+DOLS does not veto S40 by itself.
 
-$$
-k_t
-$$
+DOLS contradictions must be recorded as fragility metadata, not as automatic Tier 1 failure.
 
-$$
-(s_t-\bar{s})k_t
-$$
+The S30 adjudication output must therefore preserve:
 
-$$
-\omega_t(s_t-\bar{s})k_t
-$$
+- `dols_fragility_flag`
+- `dols_veto = FALSE`
+- `dols_reconstruction_basis = FALSE`
+- `dols_contradiction_windows`
+- a short explanation of the DOLS contradiction as stress evidence.
 
-$$
-D_t(\hat{\gamma})(s_t-\bar{s})k_t
-$$
-
-$$
-D_t(\hat{\gamma})\omega_t(s_t-\bar{s})k_t
-$$
-
-The purpose is not to estimate:
-
-$$
-\theta_t^M
-$$
-
-directly.
-
-The purpose is to estimate coefficients that identify the behavior of:
-
-$$
-\theta_t^{tot}
-$$
+This implements the R09 rule: DOLS is a fragility diagnostic, not the estimator that defines admissibility.
 
 ---
 
-## S40 — Reconstruction of aggregate transformation and utilization
+## 6. Preferred stability diagnostics before S40
 
-Purpose:
+The S30 script should add the preferred formal stability diagnostic for the B1 cointegrating relation:
 
-Reconstruct:
+`y_t ~ k_t + omega_k_t`
 
-$$
-\theta_t^{tot}
-$$
+Minimum required diagnostic checks:
 
-then:
+1. Run a Hansen-type parameter-instability test, or the closest implementable equivalent, as preferred formal stability evidence for the B1 cointegrating regression.
+2. Apply it to the existing S30 reference windows only; do not add new candidate windows.
+3. Report whether the procedure is the exact Hansen test or an operational proxy.
+4. Report test statistic, p-value if available, critical values if available, implementation package/function, and failure reason if the test cannot be computed.
+5. Preserve the estimator-role hierarchy: FM-OLS main, IM-OLS robustness, DOLS fragility diagnostic.
+6. Carry forward effective sample size, DOLS survival/failure, neighborhood reversals, collinearity flags, and rolling diagnostics from the existing S30 outputs.
+7. Classify the stability evidence as `supportive`, `mixed`, `contradictory`, or `unavailable`.
 
-$$
-Y_t^p
-$$
+Suggested evidence mapping:
 
-then:
+| Formal result | Evidence class |
+|---|---|
+| No instability rejection at 10 percent | `supportive` |
+| Rejection at 10 percent but not 5 percent | `mixed`; restricted S40 may open only with a fragility flag if Tier 1 also passes |
+| Rejection at 5 percent or stronger | `contradictory`; S40 remains blocked |
+| Test unavailable or effective sample inadequate | `unavailable`; S40 remains blocked |
 
-$$
-\mu_t
-$$
+The code should report 10, 5, and 1 percent results when the implementation provides them.
 
-The correct sequence is:
-
-$$
-\text{reduced-form coefficient recovery}
-\rightarrow
-\hat{\theta}_t^{tot}
-\rightarrow
-\hat{Y}_t^p
-\rightarrow
-\text{level anchoring}
-\rightarrow
-\hat{\mu}_t
-$$
-
-S40 is not an estimator stage.  
-S40 is a reconstruction stage.
-
-Examples:
-
-```text
-CL_S40_theta_tot_mu_reconstruction.R
-US_S40_theta_tot_mu_reconstruction.R
-CMP_S40_theta_tot_alignment.R
-```
-
-Guardrail:
-
-Do not claim that S40 estimates:
-
-$$
-\theta_t^M
-$$
-
-S40 reconstructs the aggregate transformation object and derives utilization after productive capacity is reconstructed and anchored.
+A preferred coefficient sign, magnitude, or significance level cannot override the hierarchical S40 gate.
 
 ---
 
-## S50 — Machinery-channel interpretation and productive-capacity corridor
+## 7. Gregory-Hansen and Hansen-style break tests
 
-Purpose:
+Hansen-type parameter-instability testing is the preferred formal stability diagnostic because S30 is asking whether the cointegrating relation can be treated as sufficiently stable for restricted downstream use.
 
-Interpret the reconstructed aggregate object through the structural machinery channel.
+Gregory-Hansen style tests may be used only as a bounded supporting stress check.
 
-The productive-capacity corridor is:
+Their role is to ask whether cointegration is recovered when one unknown regime shift is allowed.
 
-$$
-\theta \rightarrow \mu \rightarrow r
-$$
+They do not select the S40 window.
 
-S50 asks how reconstructed capacity utilization relates to profitability and regime interpretation.
+They do not create a regime model.
 
-Expected tasks:
+They do not convert the chapter into a structural-break econometrics paper.
 
-- interpret $$\theta_t^{tot}$$ behavior;
-- infer machinery-channel behavior;
-- evaluate wage-share conditioning;
-- connect utilization to profitability;
-- organize the productive-capacity corridor.
+Rules for the S30 code:
 
-Examples:
+- Run the Hansen-type check for B1 as the preferred formal diagnostic supporting S30 adjudication.
+- Run Gregory-Hansen for B1 only if the implementation stack can do so cleanly.
+- If Gregory-Hansen is run, export the estimated break date and model variant as diagnostic evidence only.
+- Do not use the Gregory-Hansen break date to redefine historical windows.
+- Do not run Bai-Perron, Kejriwal-Perron, threshold-FGLS, or multiple-break searches in this step.
+- Do not promote C1 or C2 because a break-adjusted test looks more favorable.
+- Do not report rolling or recursive paths as regime identifiers.
 
-```text
-CL_S50_thetaM_corridor_interpretation.R
-US_S50_thetaM_corridor_interpretation.R
-CMP_S50_theta_mu_r_comparison.R
-```
+Admissible interpretation:
 
-Guardrail:
+> The one-break diagnostic suggests whether B1's cointegration evidence is sensitive to allowing a single unknown shift.
 
-S50 interprets:
+Inadmissible interpretation:
 
-$$
-\theta_t^M
-$$
-
-It does not claim to estimate:
-
-$$
-\theta_t^M
-$$
-
-directly.
+> The break test discovered the regime structure for S40.
 
 ---
 
-## S60 — Recapitalization, external constraint, and peripheral mechanism
+## 8. Export artifacts required from the S30 adjudication script
 
-Purpose:
+The S30 adjudication script should write only US S30 artifacts under:
 
-Handle the second corridor:
+`C:/ReposGitHub/Capacity-Utilization-US_Chile/output/US/S30_transformation_relation/`
 
-$$
-\chi \rightarrow k \rightarrow g
-$$
+Required exports:
 
-For Chile, S60 also handles the peripheral external-mechanization constraint.
+| Artifact | Required content |
+|---|---|
+| `us_s30_formal_spec_disposition.csv` | One row per existing S30 specification with adjudicated role, S40 eligibility, diagnostic-only flag, and exclusion reason. |
+| `us_s30_hansen_stability_tests.csv` | B1 Hansen-type stability evidence by existing reference window, including exact/proxy flag, statistic, p-value or critical values, evidence class, package/function, and failure reason. |
+| `us_s30_gregory_hansen_stress.csv` | B1 one-break cointegration stress results if implemented; otherwise a row recording `not_implemented` and the reason. |
+| `us_s30_formal_stability_decision.csv` | Final hierarchical S30 gate table with Tier 1, Tier 2, and Tier 3 status; B1 restricted-pathway decision; fragility flag; and whether S40 remains blocked. |
+| `US_S30_formal_stability_adjudication_report.md` | Short human-readable report summarizing disposition, formal tests, Gregory-Hansen treatment, and S40 gate result. |
+| `us_s30_formal_stability_manifest.csv` | Run timestamp, input files, package availability, test implementations, unchanged estimator settings, explicit `no_s40_code = TRUE`, and explicit `s30_anchor_authority = FALSE`. |
 
-The peripheral external-mechanization wedge is:
+Forbidden exports in this step:
 
-$$
-\mathcal{E}_t=\Lambda_t\varphi_t
-$$
-
-where:
-
-$$
-\varphi_t=\frac{I_t^M}{I_t^A}
-$$
-
-and:
-
-$$
-\Lambda_t
-$$
-
-is the shadow cost or proxy for foreign-exchange pressure.
-
-Expected Chile scripts:
-
-```text
-CL_S60_peripheral_mechanization_constraint.R
-CL_S60_bop_recapitalization_corridor.R
-```
-
-Expected US script:
-
-```text
-US_S60_recapitalization_benchmark.R
-```
-
-Expected comparative script:
-
-```text
-CMP_S60_external_constraint_comparison.R
-```
-
-S60 does not replace S40.
-
-It interprets whether profitability and surplus are translated into renewed accumulation and growth, especially under external constraint.
+- productive-capacity paths;
+- `Yp` series;
+- utilization or `mu` series;
+- utilization anchors;
+- profitability outputs;
+- Chile outputs;
+- new estimator-grid expansions;
+- paper-facing tables presented as final chapter results.
 
 ---
 
-## S70 — Comparative synthesis
+## 9. S40 hierarchical stop-rule
 
-Purpose:
+S40 may open only as a restricted B1 pathway.
 
-Compare reconstructed objects across structurally unequal positions.
+The gate is hierarchical.
 
-This is not national-container comparison.
+### Tier 1: object admissibility
 
-It compares how the same structural problem appears under different historical and world-market conditions.
+All Tier 1 conditions must pass:
 
-Expected scripts:
+1. B1 is the candidate being evaluated.
+2. B1 is under formal restricted-pathway evaluation.
+3. No severe collinearity flag applies to B1.
+4. FM-OLS is available for the B1 reconstruction-relevant windows.
+5. IM-OLS does not substantively contradict FM-OLS.
 
-```text
-CL_S70_center_periphery_synthesis.R
-US_S70_center_benchmark_synthesis.R
-CMP_S70_structural_comparison.R
-```
+DOLS contradiction does not make Tier 1 fail.
 
-The comparative object is not:
+DOLS contradiction sets:
 
-```text
-Chile vs US as isolated national cases
-```
+- `dols_fragility_flag = TRUE`
+- `dols_veto = FALSE`
+- `dols_reconstruction_basis = FALSE`
 
-but:
+If Tier 1 fails, S40 remains blocked regardless of later stability or stress-test evidence.
 
-```text
-center and periphery as differentiated positions within a hierarchically organized world economy
-```
+### Tier 2: stability evidence
 
----
+Tier 2 uses Hansen-type evidence as the preferred formal stability diagnostic, together with existing neighborhood diagnostics.
 
-## S90 — Diagnostics, robustness, threshold/FGLS stress tests
+Tier 2 requires:
 
-Purpose:
+1. Hansen-type evidence is `supportive` or `mixed`.
+2. Neighborhood diagnostics do not overturn the interpretation.
 
-Run diagnostics and robustness checks.
+If Tier 2 is `supportive` and Tier 1 passes, S40 may open only as a restricted B1 pathway.
 
-S90 does not authorize estimation shortcuts.
+If Tier 2 is `mixed` and Tier 1 passes, S40 may open only as a restricted B1 pathway with an explicit fragility flag.
 
-It includes:
+If Tier 2 is `contradictory` or `unavailable`, S40 remains blocked.
 
-- DOLS fragility checks;
-- lead-lag sensitivity;
-- VIF and collinearity checks;
-- window sensitivity;
-- break versus threshold diagnostics;
-- threshold significance;
-- weak identification checks;
-- FGLS admissibility;
-- bootstrap / sup-Wald procedures where required.
+### Tier 3: supporting stress checks
 
-Examples:
+Gregory-Hansen, if run, is a supporting stress check only.
 
-```text
-CL_S90_threshold_dummy_fgls_admissibility.R
-CL_S90_break_threshold_stress_tests.R
-US_S90_dols_fragility_diagnostics.R
-US_S90_specification_stress_tests.R
-CMP_S90_regime_stability_stress_tests.R
-```
+It may report one-break cointegration sensitivity, but it cannot redefine historical windows, create regimes, or promote any non-B1 specification.
 
-Guardrail:
+The decision table must explicitly record one of:
 
-S90 cannot override S20.
+- `s40_gate = pass_restricted`
+- `s40_gate = pass_restricted_fragility_flag`
+- `s40_gate = blocked`
 
-Threshold-FGLS belongs only after threshold behavior is independently justified.
+If the hierarchical gate blocks S40, the correct result is:
+
+> US S40 blocked: no admissible restricted B1 pathway under S30 evidence.
+
+This is a substantive S30 finding, not a failed code path.
 
 ---
 
-## S99 — Result-package export
+## 10. Relation to S40 anchoring
 
-Purpose:
+If S30 returns:
 
-Export final results.
+`s40_gate = pass_restricted`
 
-S99 should not silently reconstruct analytical objects.
+or:
 
-Expected outputs:
+`s40_gate = pass_restricted_fragility_flag`
 
-- tables;
-- figures;
-- appendices;
-- paper-facing result sheets;
-- advisor-facing figures;
-- diagnostics summaries;
-- reproducibility manifests.
+then S40 may proceed only under the downstream S40 contract.
 
-Examples:
+S40 must then use the D03 anchor protocol.
 
-```text
-CL_S99_results_package.R
-US_S99_results_package.R
-CMP_S99_comparative_results_package.R
-```
+For the United States, the preferred S40 baseline is:
+
+$$
+\mu_{US,1973}=1
+$$
+
+S40 must not infer the utilization anchor from:
+
+- the S30 benchmark window;
+- the S30 stability gate;
+- the S30 candidate-window register;
+- DOLS fragility results;
+- rolling or recursive paths.
+
+The Fordist-core window may remain a coefficient-recovery or historical benchmark window, but it must not be silently converted into:
+
+$$
+\overline{\mu}_{1945-1973}=1
+$$
+
+as the preferred baseline.
+
+If a Fordist-core mean normalization is computed later, it must be labeled diagnostic or robustness only.
 
 ---
 
-# 6. Flat code naming convention
+## 11. Ready to code only if
 
-The final code naming convention is:
-
-```text
-CASE_STAGE_object_task.R
-```
-
-where:
-
-```text
-CASE = CL | US | CMP
-STAGE = S00 | S10 | S20 | S30 | S40 | S50 | S60 | S70 | S90 | S99
-```
-
-Examples:
-
-```text
-CL_S10_source_of_truth_panel.R
-CL_S20_external_constraint_threshold_index.R
-CL_S30_transformation_relation_fmols.R
-CL_S40_theta_tot_mu_reconstruction.R
-CL_S60_bop_recapitalization_corridor.R
-US_S90_dols_fragility_diagnostics.R
-CMP_S70_structural_comparison.R
-```
+- [ ] The script is limited to US S30 formal stability adjudication.
+- [ ] The script consumes existing S30 outputs instead of expanding the estimator grid.
+- [ ] `SPEC_B1_WAGE_BASELINE` is the only restricted S40-pathway candidate under review.
+- [ ] `SPEC_C1_COMPOSITION_STOCK` is mechanism evidence only.
+- [ ] `SPEC_C2_FULL_COMPOSITION`, `SPEC_D1_CURRENT_COST_DIAGNOSTIC`, and `SPEC_D2_PRICE_WEDGE_DIAGNOSTIC` are diagnostic-only.
+- [ ] FM-OLS remains the main estimator.
+- [ ] IM-OLS remains the robustness estimator.
+- [ ] DOLS remains a fragility/stress diagnostic only.
+- [ ] DOLS contradiction sets a fragility flag but does not veto Tier 1.
+- [ ] Hansen-type parameter-instability testing is the preferred formal stability diagnostic, with exact/proxy status reported.
+- [ ] Stability evidence is classified as `supportive`, `mixed`, `contradictory`, or `unavailable`.
+- [ ] The S40 decision uses the Tier 1 object-admissibility, Tier 2 stability-evidence, and Tier 3 supporting-stress hierarchy.
+- [ ] Mixed Tier 2 evidence opens S40 only with an explicit fragility flag.
+- [ ] Contradictory or unavailable Tier 2 evidence leaves S40 blocked.
+- [ ] Gregory-Hansen is optional, one-break-only, and diagnostic; it does not choose regimes or windows.
+- [ ] No S40 code, productive-capacity reconstruction, utilization computation, utilization anchor, profitability analysis, or Chile output is produced.
+- [ ] The script exports a formal S30 gate decision that never promotes C1, C2, D1, or D2.
+- [ ] The manifest records `s30_anchor_authority = FALSE`.
+- [ ] The note remains consistent with D03: if S40 opens, the preferred U.S. utilization anchor is $\mu_{US,1973}=1$.
 
 ---
 
-# 7. US implementation plan
+## 12. Locked formulation
 
-## 7.1 US target sequence
+S30 opens or blocks S40.
 
-```text
-US_S10_source_of_truth_panel.R
-US_S20_composition_stability_admissibility.R
-US_S30_transformation_relation_fmols.R
-US_S30_transformation_relation_imols.R
-US_S30_transformation_relation_dols_fragility.R
-US_S40_theta_tot_mu_reconstruction.R
-US_S50_thetaM_corridor_interpretation.R
-US_S50_theta_mu_profitability_corridor.R
-US_S60_recapitalization_benchmark.R
-US_S90_dols_fragility_diagnostics.R
-US_S99_results_package.R
-```
+S30 does not choose the utilization level anchor.
 
-## 7.2 US recycling logic
+The US S30 formal stability protocol adjudicates whether `SPEC_B1_WAGE_BASELINE` may open a restricted S40 pathway under fragility discipline.
 
-Current DOLS-era scripts should not be promoted directly.
+The admissible hierarchy is:
 
-They should be recycled as follows:
+- FM-OLS = main estimator;
+- IM-OLS = robustness estimator;
+- DOLS = fragility / stress diagnostic.
 
-```text
-US_dols_diagnostic.R
-→ US_S90_dols_fragility_diagnostics.R
+DOLS may flag fragility, but it may not independently veto Tier 1 or define the reconstruction basis.
 
-us_dols_spec_grid_cointReg.R
-→ US_S90_dols_spec_grid_fragility.R
-
-US_dols_try_fullsample.R
-→ US_S20_historical_break_window_scan.R
-  or US_S90_known_break_stress_test.R
-
-US_dols_try_fullsample_v2.R
-→ US_S30_transformation_relation_fmols_imols_dols.R
-
-us_dols_mu_theta_graph.R
-→ US_S40_theta_tot_mu_reconstruction.R
-  and US_S99_theta_mu_figures.R
-
-us_dols_theta_graph.R
-→ US_S99_theta_figures.R
-
-us_profitability_analysis.R
-→ US_S50_theta_mu_profitability_corridor.R
-
-us_profitability_analysis_results_pack.R
-→ US_S99_profitability_results_package.R
-```
-
-## 7.3 US guardrail
-
-The old US move was:
+If S40 opens, the U.S. utilization anchor is governed by D03, with the preferred baseline condition:
 
 $$
-\text{DOLS coefficients}
-\rightarrow
-\theta_t=\beta_1+\beta_2\omega_t
-\rightarrow
-Y_t^p
-\rightarrow
-\mu_t
+\mu_{US,1973}=1
 $$
 
-The new US move must be:
+The Fordist-core window may remain a coefficient-recovery or historical benchmark window, but it must not silently impose:
 
 $$
-\text{source-of-truth panel}
-\rightarrow
-\text{composition/admissibility}
-\rightarrow
-\text{reduced-form coefficient recovery}
-\rightarrow
-\theta_t^{tot}
-\rightarrow
-Y_t^p
-\rightarrow
-\mu_t
-\rightarrow
-\theta_t^M \text{ interpretation}
-\rightarrow
-\text{profitability corridor}
+\overline{\mu}_{1945-1973}=1
 $$
 
----
-
-# 8. Chile implementation plan
-
-## 8.1 Chile target sequence
-
-```text
-CL_S10_source_of_truth_panel.R
-CL_S20_composition_mechanization_external_constraint.R
-CL_S20_periodization_stability_admissibility.R
-CL_S20_external_constraint_threshold_index.R
-CL_S30_transformation_relation_fmols.R
-CL_S30_transformation_relation_imols.R
-CL_S30_transformation_relation_dols_fragility.R
-CL_S40_theta_tot_mu_reconstruction.R
-CL_S50_thetaM_corridor_interpretation.R
-CL_S50_theta_mu_profitability_corridor.R
-CL_S60_peripheral_mechanization_constraint.R
-CL_S60_bop_recapitalization_corridor.R
-CL_S90_threshold_dummy_fgls_admissibility.R
-CL_S99_results_package.R
-```
-
-## 8.2 Chile required analytical variables
-
-Chile requires explicit construction of:
-
-$$
-s_t=\frac{K_t^M}{K_t}
-$$
-
-$$
-\varphi_t=\frac{I_t^M}{I_t^A}
-$$
-
-$$
-\mathcal{E}_t=\Lambda_t\varphi_t
-$$
-
-$$
-D_t(\hat{\gamma})=\mathbf{1}\{\mathcal{E}_t>\hat{\gamma}\}
-$$
-
-These variables are not optional extras.
-
-They are required by the asymmetric accumulation-composition framework.
-
-## 8.3 Chile threshold logic
-
-The peripheral threshold should not be coded as a generic continuous external-wedge effect only.
-
-The preferred threshold logic is:
-
-$$
-\mathcal{E}_t=\Lambda_t\varphi_t
-$$
-
-Estimate:
-
-$$
-\hat{\gamma}
-$$
-
-Construct:
-
-$$
-D_t(\hat{\gamma})=\mathbf{1}\{\mathcal{E}_t>\hat{\gamma}\}
-$$
-
-Then estimate the threshold-dummy interaction model.
-
-A generic representation is:
-
-$$
-y_t
-=
-c
-+
-\delta D_t
-+
-\beta_1 k_t
-+
-\beta_2(\omega_t k_t)
-+
-\alpha_1(D_t k_t)
-+
-\alpha_2[D_t(\omega_t k_t)]
-+
-\varepsilon_t
-$$
-
-Under low external constraint:
-
-$$
-\theta_L(\omega_t)=\beta_1+\beta_2\omega_t
-$$
-
-Under high external constraint:
-
-$$
-\theta_H(\omega_t)
-=
-(\beta_1+\alpha_1)
-+
-(\beta_2+\alpha_2)\omega_t
-$$
-
-With the composition-weighted architecture, the preferred interaction surface should be adapted to the machinery channel:
-
-$$
-(s_t-\bar{s})k_t
-$$
-
-$$
-\omega_t(s_t-\bar{s})k_t
-$$
-
-$$
-D_t(\hat{\gamma})(s_t-\bar{s})k_t
-$$
-
-$$
-D_t(\hat{\gamma})\omega_t(s_t-\bar{s})k_t
-$$
-
-The point is not simply whether an external-constraint coefficient is negative.
-
-The stronger question is whether the transformation relation changes once the imported-machinery constraint becomes binding.
-
-## 8.4 Chile recycling logic
-
-Current Chile flat candidates should be recycled as follows:
-
-```text
-CL_00_source_of_truth_chile.R
-→ CL_S10_source_of_truth_panel.R
-
-CL_01_stage1_mu.R
-→ split into CL_S20, CL_S30, and CL_S40 components
-
-CL_01_stage1_mu_source_truth_break_sig_STAGE1_ONLY.R
-→ CL_S20_periodization_stability_admissibility.R
-
-CL_01_stage1_mu_source_truth_break_sig_full.R
-→ CL_S20_periodization_stability_admissibility_full.R
-
-CL_03_results_package_mu_theta_wsh.R
-→ CL_S40_theta_tot_mu_reconstruction.R
-  and CL_S99_capacity_results_package.R
-
-CL_04_results_presentation.R
-→ CL_S99_results_presentation.R
-
-CL_05_profitability_analysis_core.R
-→ CL_S50_theta_mu_profitability_corridor.R
-
-CL_05_profitability_analysis_core_BENCH.R
-→ CL_S90_profitability_benchmark_stress.R
-
-CL_06_results_package_profitability.R
-→ CL_S99_profitability_results_package.R
-
-CL_07_results_package_profitability_diagnostics.R
-→ CL_S90_profitability_diagnostics.R
-
-CL_08_results_package_profitability_diagnostics_shortrun.R
-→ CL_S90_profitability_short_run_diagnostics.R
-
-CL_09_results_package_profitability_diagnostics_very_shortrun.R
-→ CL_S90_profitability_very_short_run_diagnostics.R
-
-CL_10_class_struggle_diagnostic.R
-→ CL_S50_distribution_conflict_diagnostic.R
-  or CL_S90_distribution_stress.R
-
-CL_11_dys_diagnostic_package.R
-→ CL_S90_dysfunctionality_diagnostic_package.R
-
-CL_12_capacity_utilization_diagnostic.R
-→ CL_S90_capacity_utilization_diagnostic.R
-
-CL_12_capacity_utilization_diagnostic_rebased2010.R
-→ CL_S90_capacity_utilization_rebase2010_diagnostic.R
-
-CL_12_capacity_utilization_diagnostic_rebased2010_v2.R
-→ CL_S90_capacity_utilization_rebase2010_diagnostic_v2.R
-
-CL_A_stage1_ECT_audit.R
-→ CL_S90_ect_audit_not_regime_classifier.R
-
-CL_B_stage2_mu_Diagnostic.R
-→ CL_S90_mu_reconstruction_diagnostic.R
-
-chile_class_struggle_astorga_weisskopf_v2.R
-→ CL_S50_distribution_conflict_astorga_weisskopf.R
-```
-
-## 8.5 Chile guardrail
-
-No ECT-driven regime activation.
-
-No direct jump from source panel to utilization.
-
-No direct claim that coefficients estimate:
-
-$$
-\theta_t^M
-$$
-
-No FGLS before threshold admissibility.
-
----
-
-# 9. Comparative implementation plan
-
-The comparative layer should not duplicate country-specific code.
-
-It should consume stabilized country outputs.
-
-Expected comparative scripts:
-
-```text
-CMP_S10_panel_alignment.R
-CMP_S20_comparative_window_register.R
-CMP_S40_theta_tot_alignment.R
-CMP_S50_theta_mu_r_comparison.R
-CMP_S60_external_constraint_comparison.R
-CMP_S70_structural_comparison.R
-CMP_S90_regime_stability_stress_tests.R
-CMP_S99_comparative_results_package.R
-```
-
-Comparative outputs should live under:
-
-```text
-output/comparative/
-  S20_window_register/
-  S40_theta_tot_alignment/
-  S50_thetaM_interpretation_comparison/
-  S60_external_constraint_comparison/
-  S70_synthesis/
-  S99_results_package/
-```
-
-The comparative layer asks:
-
-> how does the reconstructed object behave across structurally unequal positions?
-
-It does not treat Chile as a deviation from the United States.
-
----
-
-# 10. Script promotion protocol
-
-Before any script is renamed or promoted, classify it into one of the following statuses:
-
-```text
-PROMOTE_AS_CORE
-RECYCLE_AND_SPLIT
-DEMOTE_TO_DIAGNOSTIC
-MERGE_INTO_RESULTS_PACKAGE
-ARCHIVE_REVIEW
-DROP_AFTER_LEDGER
-```
-
-## 10.1 `PROMOTE_AS_CORE`
-
-Use only when a script already performs one bounded production-stage task cleanly.
-
-## 10.2 `RECYCLE_AND_SPLIT`
-
-Use when a script mixes stages, for example:
-
-```text
-data construction + estimation + reconstruction + plotting
-```
-
-These scripts must be split before promotion.
-
-## 10.3 `DEMOTE_TO_DIAGNOSTIC`
-
-Use for scripts useful as robustness or stress tests but not admissible as production core.
-
-Most DOLS-era scripts fall here unless rebuilt into FM-OLS/IM-OLS/DOLS estimator grids.
-
-## 10.4 `MERGE_INTO_RESULTS_PACKAGE`
-
-Use for scripts that only generate graphs, tables, or final outputs.
-
-## 10.5 `ARCHIVE_REVIEW`
-
-Use for legacy scripts that may contain recoverable logic but are not currently interpretable.
-
-## 10.6 `DROP_AFTER_LEDGER`
-
-Use only after a deletion ledger records what was removed and why.
-
----
-
-# 11. Promotion rules
-
-## Rule 1 — No direct promotion
-
-No current flat script is definitive merely because it exists.
-
-Current scripts are recyclable material.
-
-## Rule 2 — No country folders in `codes/`
-
-Use flat code filenames.
-
-Do not create:
-
-```text
-codes/chile/
-codes/US/
-```
-
-Country belongs in the filename.
-
-## Rule 3 — S20 before S30
-
-No coefficient recovery is definitive unless its S20 assumptions are logged.
-
-## Rule 4 — S30 before S40
-
-No utilization reconstruction before reduced-form coefficient recovery.
-
-## Rule 5 — S40 before S50/S60
-
-No profitability or peripheral interpretation before utilization is reconstructed.
-
-## Rule 6 — S90 cannot override S20
-
-Diagnostics and stress tests cannot substitute for admissibility.
-
-Threshold-FGLS enters only after threshold behavior is independently justified.
-
-## Rule 7 — Results packages do not silently compute objects
-
-S99 exports.
-
-It does not quietly reconstruct θ, μ, or profitability objects.
-
----
-
-# 12. Non-negotiable guardrails
-
-Do not write:
-
-> θ measures technological efficiency.
-
-Write:
-
-> θ measures the historically realized transformation of accumulation into productive capacity under decentralized accumulation and internally contradictory firm behavior.
-
-Do not write:
-
-> the model estimates θ^M directly.
-
-Write:
-
-> the model identifies θ^tot and interprets θ^M through composition and interaction structure.
-
-Do not write:
-
-> the threshold model tests the Marx–Okishio theorem.
-
-Write:
-
-> the threshold model estimates regime switches in Marx–Okishio closure logic as they appear in the transformation of accumulation into productive capacity.
-
-Do not write:
-
-> the residual identifies utilization.
-
-Write:
-
-> utilization is derived after reconstructing and anchoring productive capacity.
-
-Do not write:
-
-> FGLS resolves instability.
-
-Write:
-
-> FGLS is admissible only after the diagnostic ladder justifies threshold behavior.
-
----
-
-# 13. Implementation sequence
-
-The implementation should proceed in this order:
-
-```text
-1. Commit this target structure memo.
-
-2. Classify all current flat scripts against the S10–S99 architecture.
-
-3. Build or stabilize S00 helpers.
-
-4. Build US_S10 and CL_S10 source-of-truth panels.
-
-5. Build S20 admissibility scripts.
-
-6. Rebuild S30 estimator scripts around FM-OLS main, IM-OLS robustness, DOLS fragility.
-
-7. Rebuild S40 θ^tot and μ reconstruction.
-
-8. Reconnect profitability scripts as S50.
-
-9. Build Chile S60 peripheral mechanism layer.
-
-10. Move diagnostics into S90.
-
-11. Build final S99 result packages.
-```
-
----
-
-# 14. Next repo commits
-
-Suggested bounded commits:
-
-```text
-audit: align target repo structure with analytical foundations
-audit: classify flat scripts against theory-locked stage map
-chore: add S00 helper skeletons
-chore: rebuild US source-of-truth panel
-chore: rebuild Chile source-of-truth panel
-```
-
-Each commit should be narrow.
-
-Do not combine structure, script movement, and data/output changes in the same commit.
-
----
-
-# 15. Locked formulation
-
-The repository should encode the analytical sequence of Chapter 2.
-
-The code surface remains flat.  
-Country and comparative scope are encoded through filename prefixes.  
-Stages encode the movement from data construction to admissibility, coefficient recovery, reconstruction, interpretation, diagnostics, and export.
-
-The empirical object directly identified in code is:
-
-$$
-\theta_t^{tot}
-$$
-
-The structural machinery-specific object:
-
-$$
-\theta_t^M
-$$
-
-is interpreted through composition, distribution, and external-constraint mechanisms.
-
-The code architecture must therefore prevent a direct jump from data to utilization, from coefficients to structural θ, or from diagnostics to regime claims.
-
-This is the production architecture for Chapter 2.
+as the baseline utilization normalization.
