@@ -1,7 +1,7 @@
 ---
 type: note
 status: active
-layer: analytical_foundation
+layer: superseded
 design_role: theory_to_identification
 scope: chapter2_core
 related_to:

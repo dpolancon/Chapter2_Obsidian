@@ -10,6 +10,7 @@ stage: S40_review
 upstream_stage: S40
 candidate_spec_id: SPEC_B1_WAGE_BASELINE
 upstream_reconstruction_contract: US_S40_Restricted_B1_Reconstruction_Contract
+figure_protocol_governed_by: C05-FIGURE_PROTOCOL
 review_script: US_S40_review_and_figures.R
 reconstruction_script: US_S40_theta_tot_mu_reconstruction.R
 anchor_protocol_governed_by: D03_capacity_utilization_level_anchor_pinch_year_protocol
@@ -20,17 +21,23 @@ anchor_type: point_year_external_pinch
 anchor_source: FRB_maximum_utilization_series
 anchor_role: level_normalization
 anchor_status: externally_declared
+recession_shading_source: FRED_NBER_monthly_business_cycle_turning_points
+recession_shading_annualization: any_month_overlap
+recession_shading_role: visual_context_only
+recession_shading_regime_classifier: false
 window_average_anchor_allowed_as_baseline: false
 fordist_core_mean_anchor_status: diagnostic_only
 figures_mark_anchor_year: true
+figures_shade_recession_years: true
 figures_shade_fordist_core_as_anchor_window: false
 profitability_allowed: false
 chile_outputs_allowed: false
 new_model_estimation_allowed: false
 s50_activation_allowed: false
 created: 2026-05-14
-updated: 2026-05-14
+updated: 2026-05-26
 related_to:
+  - C05-FIGURE_PROTOCOL
   - US_S40_Restricted_B1_Reconstruction_Contract
   - C01-US_00_MEMO_RECYCLING
   - C03-REPO_STRUCTURE
@@ -65,11 +72,15 @@ It does not compute profitability.
 
 It does not touch Chile.
 
-The review layer verifies whether the S40 outputs obey the restricted B1 reconstruction contract and the D03 anchor protocol.
+The review layer verifies whether the S40 outputs obey the restricted B1 reconstruction contract, the D03 anchor protocol, and the C05 figure protocol.
 
 The core review question is:
 
 > Did S40 reconstruct theta_tot, productive capacity, and mu under restricted B1 fragility discipline using the preferred U.S. point-year anchor, mu_US,1973 = 1?
+
+The figure-level question is:
+
+> Do the S40 figures mark the 1973 utilization anchor and use recession shading only as visual context?
 
 ---
 
@@ -99,6 +110,8 @@ The script must not re-run S40 reconstruction.
 The script must not read Chile outputs.
 
 The script must not read profitability outputs.
+
+The script may construct a local annual U.S. recession-shading register only for visual context, following C05.
 
 ---
 
@@ -235,7 +248,43 @@ not:
 
 ---
 
-## 6. Required summary outputs
+## 6. Recession-shading rule
+
+The review figures must follow:
+
+`C05-FIGURE_PROTOCOL.md`
+
+For U.S. figures, recession shading follows the FRED/NBER recession-bar convention.
+
+Because the S40 series are annual, recession shading must use the C05 annualization rule:
+
+`any_month_overlap`
+
+That means a calendar year is shaded if at least one month in that year overlaps an NBER/FRED recession interval.
+
+Recession shading is visual context only.
+
+It is not:
+
+- a regime classifier;
+- a break-date estimator;
+- a window-selection device;
+- a threshold trigger;
+- a utilization-anchor rule;
+- evidence that recession dates determine the reconstructed capacity path.
+
+The review manifest must record:
+
+- `recession_shading_source = FRED_NBER_monthly_business_cycle_turning_points`
+- `recession_shading_annualization = any_month_overlap`
+- `recession_shading_role = visual_context_only`
+- `recession_shading_regime_classifier = FALSE`
+
+The review should export an annual recession-shading register so the figure layer is auditable.
+
+---
+
+## 7. Required summary outputs
 
 The review script must write only to:
 
@@ -248,6 +297,7 @@ Required CSV outputs:
 - `us_s40_theta_summary.csv`
 - `us_s40_anchor_point_summary.csv`
 - `us_s40_anchor_protocol_summary.csv`
+- `us_s40_recession_shading_register.csv`
 
 Required manifest:
 
@@ -271,9 +321,13 @@ The report must also state:
 
 > The preferred U.S. utilization level anchor is the point-year condition mu_US,1973 = 1, not mean utilization over the Fordist-core window.
 
+The report must also state:
+
+> U.S. recession shading follows the C05 figure protocol and is annualized using the any-month-overlap rule. Recession shading is visual context only, not regime identification.
+
 ---
 
-## 7. Required figures
+## 8. Required figures
 
 The review script should generate diagnostic, advisor-facing figures.
 
@@ -290,11 +344,11 @@ Required figures:
 
 Figures may remain ignored by `.gitignore` if the repo policy excludes binary outputs.
 
-The CSV summaries, manifest, and report should remain tracked.
+The CSV summaries, recession-shading register, manifest, and report should remain tracked.
 
 ---
 
-## 8. Figure rules
+## 9. Figure rules
 
 All figures must be diagnostic and advisor-facing.
 
@@ -306,6 +360,8 @@ Every figure title, subtitle, or caption should indicate:
 
 The mu figure must mark the 1973 anchor point.
 
+The mu figure must shade U.S. recession years using the C05 annualized recession-shading protocol.
+
 The mu figure must not shade 1945–1973 as if it were the normalization window.
 
 If the Fordist-core window is shown visually, it must be labeled as a historical benchmark or coefficient-recovery window, not as the utilization anchor.
@@ -314,6 +370,8 @@ The Y and Yp figure must compare:
 
 - observed output;
 - reconstructed productive capacity.
+
+The Y and Yp figure must use recession shading only as visual context.
 
 The theta figure must show reconstructed:
 
@@ -329,9 +387,11 @@ $$
 
 The theta figure must not imply that machinery-specific theta is directly estimated.
 
+The theta figure may include recession shading as visual context, but it must not imply that recession dates identify structural breaks in theta.
+
 ---
 
-## 9. Interpretation rules
+## 10. Interpretation rules
 
 Allowed language:
 
@@ -344,6 +404,8 @@ Allowed language:
 - U.S. point-year anchor
 - `mu_US,1973 = 1`
 - FRB full-capacity pinch year
+- annualized NBER/FRED recession shading
+- recession shading as visual context only
 
 Forbidden language:
 
@@ -357,10 +419,13 @@ Forbidden language:
 - residual utilization
 - Fordist-core mean as normal utilization
 - mean utilization over 1945–1973 as preferred baseline
+- recession bars identify regimes
+- recession bars identify break dates
+- recession bars determine reconstruction windows
 
 ---
 
-## 10. Diagnostic guardrails
+## 11. Diagnostic guardrails
 
 The review may include bounded nonpathology checks.
 
@@ -380,7 +445,7 @@ It should not silently repair the path.
 
 ---
 
-## 11. Hard prohibitions
+## 12. Hard prohibitions
 
 The review script must not:
 
@@ -398,27 +463,33 @@ The review script must not:
 - activate S50
 - activate threshold-FGLS
 - validate Fordist-core mean normalization as the preferred baseline
+- use recession shading as regime identification
+- use recession shading as break-date identification
+- use recession shading as window-selection evidence
 
 ---
 
-## 12. Ready to code only if
+## 13. Ready to code only if
 
 - active branch is `feature/us-s40-restricted-b1`
 - S40 reconstruction commit exists
 - working tree is clean
 - D03 anchor protocol is locked
+- C05 figure protocol is locked
 - US S40 reconstruction contract is locked
 - preferred U.S. anchor is `mu_US,1973 = 1`
 - output is restricted to `codes/US_S40_review_and_figures.R` and `output/US/S40_review_and_figures/`
 - review figures mark the 1973 anchor point
+- review figures apply annualized recession shading under C05
 - review checks verify the point-year anchor
 - review checks do not treat Fordist-core mean utilization as the preferred baseline
 - the review manifest records `hard_prohibitions_violated = FALSE`
 - the review manifest records `wrong_anchor_protocol_for_preferred_baseline = FALSE`
+- the review manifest records `recession_shading_regime_classifier = FALSE`
 
 ---
 
-## 13. Locked formulation
+## 14. Locked formulation
 
 The US S40 review layer verifies and visualizes the restricted B1 reconstruction.
 
@@ -446,4 +517,8 @@ is not the preferred baseline.
 
 It may appear only as a diagnostic or robustness normalization if explicitly labeled as such.
 
-The review layer should therefore mark the 1973 anchor point in figures and report any Fordist-core mean normalization as a non-baseline diagnostic.
+The review layer must also obey C05. U.S. recession shading follows the FRED/NBER recession-bar convention and is annualized using the any-month-overlap rule.
+
+Recession shading is visual context only. It is not regime identification, break-date identification, window selection, or anchor selection.
+
+The review layer should therefore mark the 1973 anchor point, shade annualized recession years, and report any Fordist-core mean normalization as a non-baseline diagnostic.

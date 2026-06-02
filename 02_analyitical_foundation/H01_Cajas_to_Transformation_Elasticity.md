@@ -2,129 +2,67 @@
 type: note
 status: active
 layer: analytical_foundation
-design_role: mechanism_definition
+design_role: mechanism_hinge
 scope: chapter2_core
 related_to:
-  - N04_Composition_of_Accumulation_and_Transformation
+  - A01_Extensive_Accumulation
+  - A02_Intensive_Accumulation
+  - A03_Transformation_Elasticity_Two-CapitalCapacityComposition
+  - A04_PeripheralTransformationElasticity
+  - N00_Mechanization_Analytical_References
   - N05_Normal_Reproduction_Closure
+  - R05_Frontier_of_Not_Becoming
+  - R06_Regime_Gating_and_Diagnostic_Ladder
 created: 2026-05-05
+updated: 2026-05-27
 ---
 
-# Mechanization problem
+# H01: From Mechanization Choice to Transformation Elasticity
 
-## Core claim
-
-Mechanization determines how accumulation is transformed into labor productivity growth.
-
-The mechanism is defined independently of equilibrium or optimality assumptions.
-
----
-
-## 1. Mechanization variable
-
-Let:
-
-$$
-q_t = \Delta \ln Q_t, \quad Q_t = \frac{K_t^M}{L_t}
-$$
-
-Mechanization is driven by machinery accumulation.
+## Core Claim
+Mechanization determines how accumulation is transformed into productive capacity growth. Grounded in Cajas (2024) as an induced, cost-minimizing choice under distributive pressure ($\pi = 1-\omega$), this note bridges the tactical optimization to the composition-weighted transformation elasticity $\theta^N$. The traditional productivity-mechanization gap formulation is explicitly recovered as the intensive-margin limiting case when capital accumulation becomes machinery-dominated.
 
 ---
 
-## 2. Productivity function
-
-Labor productivity growth:
-
-$$
-a_t = a(q_t, K_t^O)
-$$
-
-with:
-
-- $$\frac{\partial a}{\partial q} > 0$$  
-- $$\frac{\partial a}{\partial K^O} > 0$$  
-- $$\frac{\partial^2 a}{\partial q \partial K^O} \ge 0$$  
+## 1. The Micro-Optimization Root (Cajas Limit)
+Mechanization is driven by machinery accumulation $q = K^{ME}/L$. Cajas provides the micro-foundation: technical change is a choice over $q$ under distributive and technological constraints, not an exogenous residual.
+*Grounding:* Cajas (2024), Marx (Vol. I), Kennedy (1964).
+*Conceptual Role:* Serves as the intensive-margin tactical benchmark. Historical realization $q_t$ deviates from the optimal $q^*(\pi, s)$ due to Okishio's market anarchy and Vidal's internal firm division (`A02`).
 
 ---
 
-## 3. Mechanization problem (reduced form)
-
-Mechanization responds to distributive and structural conditions:
-
-$$
-q_t = q(\omega_t, \varphi_t, \mathcal{E}_t)
-$$
-
-No optimizing representative agent is assumed.
+## 2. Capital Productivity Identity & Two-Capital Decomposition
+Capital productivity is not autonomous. The accounting identity $Y/K = (Y/L)/(K/L)$ decomposes into the extensive and intensive margins:
+$$ \frac{Y}{K} = \frac{a^N(\pi, s)}{q^*(\pi, s)} \cdot s + \frac{\Gamma(K^{NRC})}{K} \cdot (1-s) $$
+*Grounding:* Kaldor (1957) links productivity to capital deepening. The two-capital extension ensures capital productivity is endogenous to the mechanization choice and infrastructural envelope.
+*Implication:* Aggregate productivity reflects the balance between labor productivity, mechanization intensity, composition share $s$, and structural capacity $\Gamma(K^{NRC})`.
 
 ---
 
-## 4. Transformation gap
-
-Define:
-
-$$
-b_t = a_t - q_t
-$$
-
-This captures the difference between productivity growth and capital deepening.
+## 3. The Transformation Gap as a Limiting Case
+Define the productivity-mechanization gap $b = a^N - q^*$. The machinery-specific transformation elasticity is:
+$$ \theta^M = 1 + \frac{b}{g_K^N} $$
+*Grounding:* This measures the capacity payoff of accumulation.
+*Analytical Bridge to A03:* When accumulation is machinery-dominated ($s \to 1$ and $g_{K^{ME}} \approx g_K^N$), the composition-weighted elasticity $\theta^N$ simplifies to:
+$$ \theta^N \approx \theta^{ME} = \frac{a^N}{q^*} = 1 + \frac{a^N - q^*}{q^*} \approx 1 + \frac{b}{g_K^N} $$
+This proves that the gap formulation is mathematically equivalent to the intensive-margin payoff under machinery-led accumulation. It is not a separate object, but a limiting representation of $\theta^{ME}$.
 
 ---
 
-## 5. Normal accumulation benchmark
-
+## 4. Normal Accumulation & Corridor Conditioning
 All transformation is evaluated relative to the normal reproduction path:
-
-$$
-g_{K,t}^N = \chi_t^N r_t^N - \delta
-$$
-
-with:
-
--  $r_t^N$ → normal profit rate  
-- $\chi_t^N$ → normal reinvestment ratio  
-- $\mu_t = 1$ → full utilization  
-- smooth reproduction holds  
+$$ g_K^N = \chi^N r^N - \delta $$
+*Grounding:* Basu (2022, 2024) defines normal profitability and accumulation, providing closure conditions.
+*Two Corridors:* The transformation payoff depends on (1) the domestic infrastructural envelope ($K^{NRC}$) and (2) the peripheral realization corridor (FX availability $\phi_t$). In the periphery, accumulation $\neq$ mechanization because $K^{ME}$ is import-constrained (Prebisch, Thirlwall, Kaldor). The old $E_t$ interaction is superseded by the FX-realization bottleneck $\pi^{eff} = \pi \cdot \phi_t$ (`A04`).
 
 ---
 
-## 6. Machinery-specific transformation elasticity
-
-Define:
-
-$$
-\theta_t^M = 1 + \frac{b_t}{g_{K,t}^N}
-$$
-
---- 
-
-## Notational convention: dependence on distribution
-
-The transformation coefficient is allowed to depend on distributive and structural conditions. For expositional purposes, this is written as:
-
-$$
-\theta^M = \theta(\omega_t, \varphi_t, \mathcal{E}_t)
-$$
-
-where:
-
-- $\omega_t$ → wage share (distribution)  
-- $\varphi_t$ → composition of accumulation  
-- $\mathcal{E}_t$ → external constraint  
-
-When emphasis is placed on the role of distribution, a partial notation may be used:
-
-$$
-\theta(\omega_t)
-$$
-
-This denotes the dependence of the transformation coefficient on distribution, holding other conditions fixed.
-
-This notation is purely descriptive and does not imply that a functional form is estimated directly.
+## 5. Okishio Reinterpretation (Regime Dependence)
+The Okishio theorem is reinterpreted not as a universal law, but as a closure-dependent mechanism.
+*Grounding:* Regulation theory (Aglietta, Boyer) and Basu (2024) show that transformation elasticity is not globally stable. Regimes define corridor dominance.
+*Analytical Update:* $\theta^N$ jumps discretely when the extensive margin undergoes structural reorganization ($s \to s'$), shifting all frontier parameters $\lambda^{[s]}$. The empirical coefficients capture reduced-form distributive conditioning across these shifting corridors, not a single stable technical relation.
 
 ---
 
-## Locked formulation
-
-Mechanization determines labor productivity growth through a function depending on machinery accumulation and infrastructure. The transformation elasticity is defined as the relation between productivity gains and the normal accumulation path under conditions of smooth reproduction. No optimality or equilibrium assumptions are imposed.
+## Locked Formulation
+Mechanization determines capacity growth through a distributively conditioned choice of technique, strictly bounded by an infrastructural envelope and peripheral realization constraints. The transformation elasticity $\theta^N$ is not an exogenous constant but a composition-weighted structural parameter. The traditional productivity-mechanization gap formulation is recovered as the machinery-dominated limiting case of the intensive-margin payoff. Stability is regime-dependent, governed by closure conditions and extensive-margin structural breaks, not universally guaranteed by technical progress.

@@ -2,17 +2,16 @@
 type: implementation_contract
 status: active
 layer: code_stage_design
-design_role: us_s40_review_and_figures_contract
+design_role: us_s40_restricted_b1_reconstruction_contract
 scope: chapter2_results_repo
 repo: Capacity-Utilization-US_Chile
 country: US
-stage: S40_review
-upstream_stage: S40
+stage: S40_reconstruction
+upstream_stage: S30
 candidate_spec_id: SPEC_B1_WAGE_BASELINE
-upstream_reconstruction_contract: US_S40_Restricted_B1_Reconstruction_Contract
-figure_protocol_governed_by: C05-FIGURE_PROTOCOL
-review_script: US_S40_review_and_figures.R
+s30_gate_governed_by: C04-US_S30_STABILITY_PROTOCOL
 reconstruction_script: US_S40_theta_tot_mu_reconstruction.R
+review_script: US_S40_review_and_figures.R
 anchor_protocol_governed_by: D03_capacity_utilization_level_anchor_pinch_year_protocol
 anchor_country: US
 anchor_year: 1973
@@ -21,134 +20,140 @@ anchor_type: point_year_external_pinch
 anchor_source: FRB_maximum_utilization_series
 anchor_role: level_normalization
 anchor_status: externally_declared
-recession_shading_source: FRED_NBER_monthly_business_cycle_turning_points
-recession_shading_annualization: any_month_overlap
-recession_shading_role: visual_context_only
-recession_shading_regime_classifier: false
+preferred_or_diagnostic: preferred
+point_year_or_window_average: point_year
+diagnostic_window_average_anchor: false
 window_average_anchor_allowed_as_baseline: false
 fordist_core_mean_anchor_status: diagnostic_only
-figures_mark_anchor_year: true
-figures_shade_recession_years: true
-figures_shade_fordist_core_as_anchor_window: false
+fragility_flag_required: true
 profitability_allowed: false
 chile_outputs_allowed: false
 new_model_estimation_allowed: false
+review_figures_allowed: false
 s50_activation_allowed: false
 created: 2026-05-14
-updated: 2026-05-14
+updated: 2026-05-26
 related_to:
-  - C05-FIGURE_PROTOCOL
-  - US_S40_Restricted_B1_Reconstruction_Contract
   - C01-US_00_MEMO_RECYCLING
   - C03-REPO_STRUCTURE
   - C04-US_S30_STABILITY_PROTOCOL
+  - C05-FIGURE_PROTOCOL
+  - US_S40_Review_and_Figures_Contract
   - D03_capacity_utilization_level_anchor_pinch_year_protocol
   - M10_Empirical_Identification_Framework
   - R01_residual_vs_structural_identification
   - R09_structural_break_protocol
 ---
 
-# US S40 Review and Figures Contract
+# US S40 Restricted B1 Reconstruction Contract
 
 ## 1. Purpose
 
 This file defines the contract for:
 
-`codes/US_S40_review_and_figures.R`
+`codes/US_S40_theta_tot_mu_reconstruction.R`
 
-This stage reviews and visualizes the already-constructed US S40 restricted B1 outputs.
+This stage reconstructs the restricted B1 U.S. productive-capacity path after the S30 formal gate has opened the restricted pathway under fragility discipline.
 
-It does not reconstruct new objects.
+It reconstructs:
 
-It does not modify the S40 reconstruction logic.
+- `theta_tot`
+- productive capacity, `Yp`
+- utilization, `mu`
 
 It does not estimate a new model.
 
-It does not change the utilization anchor.
+It does not reopen S30.
 
-It does not move to S50.
+It does not change the candidate specification.
 
 It does not compute profitability.
 
+It does not produce review figures.
+
 It does not touch Chile.
 
-The review layer verifies whether the S40 outputs obey the restricted B1 reconstruction contract, the D03 anchor protocol, and the C05 figure protocol.
+It does not activate S50.
 
-The core review question is:
+The core reconstruction question is:
 
-> Did S40 reconstruct theta_tot, productive capacity, and mu under restricted B1 fragility discipline using the preferred U.S. point-year anchor, mu_US,1973 = 1?
-
-The figure-level question is:
-
-> Do the S40 figures mark the 1973 utilization anchor and use recession shading only as visual context?
+> Given the restricted B1 S30 coefficient object, can S40 reconstruct theta_tot, productive capacity, and utilization while obeying the D03 point-year anchor rule, mu_US,1973 = 1?
 
 ---
 
-## 2. Binding inputs
+## 2. Binding upstream status
 
-The review script must read only:
+The only active U.S. S40 pathway is:
 
-`output/US/S40_theta_tot_mu_reconstruction/`
+`SPEC_B1_WAGE_BASELINE`
 
-Required files:
+The pathway is restricted and fragility-aware.
 
-- `us_s40_theta_tot_path.csv`
-- `us_s40_productive_capacity_path.csv`
-- `us_s40_mu_path.csv`
-- `us_s40_anchor_register.csv`
-- `us_s40_fragility_register.csv`
-- `us_s40_reconstruction_manifest.csv`
+It is not a clean benchmark promotion.
 
-The script must stop if any required input is missing.
+The relevant S30 rule is governed by:
 
-The script must not read raw data directly.
+`C04-US_S30_STABILITY_PROTOCOL.md`
 
-The script must not re-run S30.
+The S40 reconstruction script must consume the existing S30 restricted B1 outputs and decision metadata. It must not expand the estimator grid or promote any alternative specification.
 
-The script must not re-run S40 reconstruction.
+Allowed upstream status values are:
+
+- `s40_gate = pass_restricted`
+- `s40_gate = pass_restricted_fragility_flag`
+
+If the upstream gate is unavailable, contradictory, blocked, or points to a non-B1 candidate, the script must stop.
+
+---
+
+## 3. Binding inputs
+
+The reconstruction script may read only the input files needed to reconstruct the already-adjudicated restricted B1 path.
+
+Allowed input classes:
+
+- canonical U.S. source-of-truth panel required to assemble `Y_real`, `K`, and relevant transformation variables;
+- S30 restricted B1 coefficient outputs;
+- S30 formal stability decision and fragility metadata;
+- historical-window metadata already produced upstream.
 
 The script must not read Chile outputs.
 
 The script must not read profitability outputs.
 
-The script may construct a local annual U.S. recession-shading register only for visual context, following C05.
+The script must not read review-layer outputs.
+
+The script must not use DOLS coefficients as the reconstruction basis.
 
 ---
 
-## 3. Required upstream checks
+## 4. Reconstruction object
 
-The review must verify that the S40 reconstruction remains inside the restricted B1 corridor.
+The reconstruction object is `theta_tot`, not a direct estimate of machinery-specific `theta_M`.
 
-Required checks:
+The restricted B1 path must treat the long-run transformation relation as the upstream identified object and then derive the capacity-utilization path downstream.
 
-- `candidate_spec_id = SPEC_B1_WAGE_BASELINE`
-- `fragility_flag = TRUE` if upstream S30 gate was `pass_restricted_fragility_flag`
-- `s40_admissibility_status = admissible_restricted_b1_under_fragility` when fragility is active
-- `dols_reconstruction_basis = FALSE`
-- `dols_veto = FALSE`
-- `mu_formula = Y_real / Yp`
-- all `mu_t` values are finite
-- all `Yp` values are finite
-- all `Yp` values are positive
-- no profitability variables are computed
-- no Chile outputs are touched
-- no comparative outputs are created
-- no new model is estimated
-- no anchor is silently changed
+The admissible sequence is:
 
-The review layer must report failed checks in:
+1. read S30 restricted B1 coefficient object;
+2. reconstruct `theta_tot`;
+3. reconstruct unanchored productive capacity, `Yp_unanchored`;
+4. apply the D03 point-year level anchor;
+5. derive `Yp` after anchoring;
+6. derive `mu = Y_real / Yp`;
+7. write registers and manifests.
 
-`us_s40_review_checks.csv`
+The script must not treat residuals as primitive utilization.
 
-A failed check does not automatically repair the output.
+The script must not use DOLS as the reconstruction engine.
 
-A failed check blocks interpretation until S40 is patched upstream.
+The script must not infer `theta_M` as directly estimated.
 
 ---
 
-## 4. Anchor review rule
+## 5. Anchor rule
 
-The review layer must use the D03 anchor protocol.
+The reconstruction layer must use the D03 anchor protocol.
 
 The preferred U.S. baseline anchor is:
 
@@ -174,69 +179,48 @@ The anchor status is:
 
 `externally_declared`
 
-The review must verify that the anchor register records:
-
-- `country = US`
-- `anchor_year = 1973`
-- `anchor_value = 1`
-- `anchor_variable = mu_t`
-- `anchor_type = point_year_external_pinch`
-- `anchor_source = FRB maximum utilization series`
-- `anchor_role = level_normalization`
-- `anchor_status = externally_declared`
-- `preferred_or_diagnostic = preferred`
-- `point_year_or_window_average = point_year`
-- `diagnostic_window_average_anchor = FALSE`
-
-The review must verify:
+The script must locate the row for 1973 and compute the anchor scale factor so that the anchored path satisfies:
 
 $$
-\mu_{US,1973}=1
+\mu_{US,1973}=1.
 $$
 
-within the declared numerical tolerance.
+Equivalently, after anchoring:
+
+$$
+Y^p_{1973}=Y_{1973}.
+$$
+
+The exact implementation may scale `Yp_unanchored` or apply an equivalent log-level shift, but the exported result must verify `mu_1973 = 1` within tolerance.
 
 Recommended tolerance:
 
 `1e-4`
 
-The tolerance is a reconstruction-consistency tolerance, not a theory restriction.
-
-If the anchor register does not record `anchor_year = 1973` and `anchor_type = point_year_external_pinch`, the review must fail.
-
-The review must not silently accept a window-average anchor as equivalent to the point-year anchor.
+The tolerance is a numerical reconstruction tolerance, not a theoretical claim that utilization generally converges to one.
 
 ---
 
-## 5. What the review must not validate as baseline
+## 6. What must not be used as preferred anchor
 
-The review must not validate the old Fordist-core window-average normalization as the preferred baseline.
-
-The following condition is not the preferred U.S. baseline:
+The previous Fordist-core mean normalization is not the preferred baseline:
 
 $$
 \overline{\mu}_{1945-1973}=1
 $$
 
-The Fordist-core window may appear in S30 or S40 metadata as:
+The Fordist-core window may remain a coefficient-recovery window, reconstruction context, historical benchmark, or diagnostic comparison window.
 
-- coefficient-recovery window;
-- reconstruction window;
-- historical benchmark window;
-- diagnostic comparison window.
+It must not silently define normal utilization.
 
-It must not be treated as the utilization level anchor unless explicitly labeled as diagnostic or robustness.
+If the script computes a Fordist-core window mean, it must be labeled diagnostic or robustness-only.
 
-If the review script detects:
+The script must not record any of the following as the preferred anchor logic:
 
 - `anchor_window = fordist_core`
 - `anchor_year_start = 1945`
 - `anchor_year_end = 1973`
 - `anchor_check_mean_mu = 1`
-
-as the preferred anchor logic, the review must flag this as:
-
-`wrong_anchor_protocol_for_preferred_baseline`
 
 The correct preferred baseline check is:
 
@@ -248,277 +232,178 @@ not:
 
 ---
 
-## 6. Recession-shading rule
+## 7. Required anchor register
 
-The review figures must follow:
+The reconstruction script must write:
 
-`C05-FIGURE_PROTOCOL.md`
+`output/US/S40_theta_tot_mu_reconstruction/us_s40_anchor_register.csv`
 
-For U.S. figures, recession shading follows the FRED/NBER recession-bar convention.
+The anchor register should include at minimum:
 
-Because the S40 series are annual, recession shading must use the C05 annualization rule:
+- `country`
+- `anchor_variable`
+- `anchor_year`
+- `anchor_window`
+- `anchor_value`
+- `anchor_type`
+- `anchor_source`
+- `anchor_role`
+- `anchor_status`
+- `normalization_rule`
+- `rationale`
+- `preferred_or_diagnostic`
+- `point_year_or_window_average`
+- `diagnostic_window_average_anchor`
+- `anchor_scale_factor`
+- `log_anchor_shift`
+- `anchor_check_mu_1973`
+- `input_panel_path`
+- `fragility_flag`
 
-`any_month_overlap`
+Expected values include:
 
-That means a calendar year is shaded if at least one month in that year overlaps an NBER/FRED recession interval.
-
-Recession shading is visual context only.
-
-It is not:
-
-- a regime classifier;
-- a break-date estimator;
-- a window-selection device;
-- a threshold trigger;
-- a utilization-anchor rule;
-- evidence that recession dates determine the reconstructed capacity path.
-
-The review manifest must record:
-
-- `recession_shading_source = FRED_NBER_monthly_business_cycle_turning_points`
-- `recession_shading_annualization = any_month_overlap`
-- `recession_shading_role = visual_context_only`
-- `recession_shading_regime_classifier = FALSE`
-
-The review should export an annual recession-shading register so the figure layer is auditable.
-
----
-
-## 7. Required summary outputs
-
-The review script must write only to:
-
-`output/US/S40_review_and_figures/`
-
-Required CSV outputs:
-
-- `us_s40_review_checks.csv`
-- `us_s40_mu_summary.csv`
-- `us_s40_theta_summary.csv`
-- `us_s40_anchor_point_summary.csv`
-- `us_s40_anchor_protocol_summary.csv`
-- `us_s40_recession_shading_register.csv`
-
-Required manifest:
-
-- `us_s40_review_manifest.csv`
-
-Required report:
-
-- `US_S40_review_and_figures_report.md`
-
-Optional diagnostic CSV:
-
-- `us_s40_anchor_window_summary.csv`
-
-This file may summarize the Fordist-core window only as a historical or diagnostic window. It must not be used to validate the preferred anchor.
-
-The report must state:
-
-> S40 proceeds as a restricted B1 reconstruction under fragility, not as a clean benchmark promotion.
-
-The report must also state:
-
-> The preferred U.S. utilization level anchor is the point-year condition mu_US,1973 = 1, not mean utilization over the Fordist-core window.
-
-The report must also state:
-
-> U.S. recession shading follows the C05 figure protocol and is annualized using the any-month-overlap rule. Recession shading is visual context only, not regime identification.
+- `country = US`
+- `anchor_variable = mu_t`
+- `anchor_year = 1973`
+- `anchor_value = 1`
+- `anchor_type = point_year_external_pinch`
+- `anchor_source = FRB maximum utilization series`
+- `anchor_role = level_normalization`
+- `anchor_status = externally_declared`
+- `preferred_or_diagnostic = preferred`
+- `point_year_or_window_average = point_year`
+- `diagnostic_window_average_anchor = FALSE`
+- `anchor_check_mu_1973 = 1` within tolerance
 
 ---
 
-## 8. Required figures
+## 8. Required outputs
 
-The review script should generate diagnostic, advisor-facing figures.
+The reconstruction script must write only to:
 
-Figures are outputs of the review layer, not new analytical objects.
+`output/US/S40_theta_tot_mu_reconstruction/`
 
-Required figures:
+Required outputs:
 
-- `fig_us_s40_mu_path.png`
-- `fig_us_s40_mu_path.pdf`
-- `fig_us_s40_y_ycapacity_path.png`
-- `fig_us_s40_y_ycapacity_path.pdf`
-- `fig_us_s40_theta_tot_path.png`
-- `fig_us_s40_theta_tot_path.pdf`
+- `us_s40_theta_tot_path.csv`
+- `us_s40_productive_capacity_path.csv`
+- `us_s40_mu_path.csv`
+- `us_s40_anchor_register.csv`
+- `us_s40_fragility_register.csv`
+- `us_s40_reconstruction_manifest.csv`
+- `US_S40_theta_tot_mu_reconstruction_report.md`
 
-Figures may remain ignored by `.gitignore` if the repo policy excludes binary outputs.
-
-The CSV summaries, recession-shading register, manifest, and report should remain tracked.
-
----
-
-## 9. Figure rules
-
-All figures must be diagnostic and advisor-facing.
-
-They must not claim clean benchmark status.
-
-Every figure title, subtitle, or caption should indicate:
-
-`restricted B1 under fragility`
-
-The mu figure must mark the 1973 anchor point.
-
-The mu figure must shade U.S. recession years using the C05 annualized recession-shading protocol.
-
-The mu figure must not shade 1945–1973 as if it were the normalization window.
-
-If the Fordist-core window is shown visually, it must be labeled as a historical benchmark or coefficient-recovery window, not as the utilization anchor.
-
-The Y and Yp figure must compare:
-
-- observed output;
-- reconstructed productive capacity.
-
-The Y and Yp figure must use recession shading only as visual context.
-
-The theta figure must show reconstructed:
-
-$$
-\theta_t^{tot}
-$$
-
-not:
-
-$$
-\theta_t^M
-$$
-
-The theta figure must not imply that machinery-specific theta is directly estimated.
-
-The theta figure may include recession shading as visual context, but it must not imply that recession dates identify structural breaks in theta.
+The outputs must be sufficient for the review layer to verify the reconstruction without re-running S30 or S40.
 
 ---
 
-## 10. Interpretation rules
+## 9. Fragility metadata
 
-Allowed language:
+Because the active U.S. pathway is restricted B1 under fragility discipline, S40 outputs must carry fragility metadata.
 
-- restricted B1 reconstruction
-- fragility-aware S40 path
-- FM-OLS-centered reconstruction
-- IM-OLS carried as robustness metadata
-- DOLS carried as stress metadata
-- utilization derived after productive capacity reconstruction and point-year anchoring
-- U.S. point-year anchor
-- `mu_US,1973 = 1`
-- FRB full-capacity pinch year
-- annualized NBER/FRED recession shading
-- recession shading as visual context only
+The fragility register must record at minimum:
 
-Forbidden language:
+- `candidate_spec_id = SPEC_B1_WAGE_BASELINE`
+- `s40_admissibility_status`
+- `fragility_flag`
+- `dols_fragility_flag`
+- `dols_veto = FALSE`
+- `dols_reconstruction_basis = FALSE`
+- `fmols_reconstruction_basis = TRUE`
+- `imols_robustness_metadata_carried = TRUE`
+- `clean_benchmark_promotion = FALSE`
 
-- clean benchmark
-- final utilization estimate
-- DOLS reconstruction
-- DOLS veto
-- direct estimate of theta_M
-- profitability result
-- regime proof
-- residual utilization
-- Fordist-core mean as normal utilization
-- mean utilization over 1945–1973 as preferred baseline
-- recession bars identify regimes
-- recession bars identify break dates
-- recession bars determine reconstruction windows
+Allowed reporting language:
+
+> Restricted B1 reconstruction under fragility.
+
+Forbidden reporting language:
+
+> Clean U.S. benchmark reconstruction.
 
 ---
 
-## 11. Diagnostic guardrails
+## 10. Diagnostic guardrails
 
-The review may include bounded nonpathology checks.
+The reconstruction script should run bounded nonpathology checks before exporting final paths.
 
-Recommended diagnostic check:
+Recommended checks:
 
+- all `Yp` values are finite;
+- all `Yp` values are positive;
 - all `mu_t` values are finite;
 - all `mu_t` values are positive;
-- all `mu_t` values fall within a broad diagnostic range such as `0 < mu_t < 2.5`.
+- `mu_1973 = 1` within tolerance;
+- no Fordist-core mean anchor is validated as preferred baseline.
 
-This is not a theoretical law.
+A diagnostic failure must be recorded in the manifest and report.
 
-It is only a diagnostic guardrail against bad anchoring, coding errors, or explosive paths.
-
-If the check fails, the review should flag the result as diagnostic failure.
-
-It should not silently repair the path.
+The script must not silently repair failed paths by changing the anchor rule.
 
 ---
 
-## 12. Hard prohibitions
+## 11. Hard prohibitions
 
-The review script must not:
+The reconstruction script must not:
 
-- estimate any new model
-- alter S40 reconstruction outputs
-- change the anchor
-- compute profitability
-- touch Chile outputs
-- create comparative outputs
-- promote non-B1 specifications
-- use DOLS as reconstruction basis
-- use DOLS as veto estimator
-- infer theta_M as directly estimated
-- identify utilization by residual
-- activate S50
-- activate threshold-FGLS
-- validate Fordist-core mean normalization as the preferred baseline
-- use recession shading as regime identification
-- use recession shading as break-date identification
-- use recession shading as window-selection evidence
-
----
-
-## 13. Ready to code only if
-
-- active branch is `feature/us-s40-restricted-b1`
-- S40 reconstruction commit exists
-- working tree is clean
-- D03 anchor protocol is locked
-- C05 figure protocol is locked
-- US S40 reconstruction contract is locked
-- preferred U.S. anchor is `mu_US,1973 = 1`
-- output is restricted to `codes/US_S40_review_and_figures.R` and `output/US/S40_review_and_figures/`
-- review figures mark the 1973 anchor point
-- review figures apply annualized recession shading under C05
-- review checks verify the point-year anchor
-- review checks do not treat Fordist-core mean utilization as the preferred baseline
-- the review manifest records `hard_prohibitions_violated = FALSE`
-- the review manifest records `wrong_anchor_protocol_for_preferred_baseline = FALSE`
-- the review manifest records `recession_shading_regime_classifier = FALSE`
+- estimate any new model;
+- alter S30 outputs;
+- promote non-B1 specifications;
+- use DOLS as reconstruction basis;
+- use DOLS as veto estimator;
+- identify utilization by residual;
+- infer `theta_M` as directly estimated;
+- validate Fordist-core mean normalization as the preferred baseline;
+- compute profitability;
+- touch Chile outputs;
+- create comparative outputs;
+- generate review figures;
+- activate S50;
+- activate threshold-FGLS;
+- choose the anchor from recession shading;
+- choose the anchor from rolling or recursive diagnostics.
 
 ---
 
-## 14. Locked formulation
+## 12. Ready to code only if
 
-The US S40 review layer verifies and visualizes the restricted B1 reconstruction.
+- active branch is `feature/us-s40-restricted-b1`;
+- working tree is clean;
+- C04 has opened the restricted B1 pathway;
+- D03 anchor protocol is locked;
+- C05 figure protocol is locked but not used to choose anchors;
+- output is restricted to `output/US/S40_theta_tot_mu_reconstruction/`;
+- the preferred U.S. anchor is `mu_US,1973 = 1`;
+- Fordist-core mean normalization is diagnostic-only;
+- the script records `dols_reconstruction_basis = FALSE`;
+- the script records `dols_veto = FALSE`;
+- the script records `clean_benchmark_promotion = FALSE`;
+- no Chile, profitability, comparative, S50, or figure-review outputs are produced.
 
-It does not reconstruct new objects.
+---
 
-It does not change the anchor.
+## 13. Locked formulation
+
+The US S40 restricted B1 reconstruction layer creates the reconstructed `theta_tot`, productive-capacity, and utilization paths from the upstream S30 restricted B1 object.
 
 It does not estimate new models.
 
 It does not compute profitability.
 
-The review must verify that S40 obeys the D03 point-year anchor protocol:
+It does not produce review figures.
+
+It does not touch Chile.
+
+It must anchor the utilization path by the D03 point-year rule:
 
 $$
-\mu_{US,1973}=1
+\mu_{US,1973}=1.
 $$
 
-The previous Fordist-core window-average normalization:
+The old Fordist-core mean normalization:
 
 $$
 \overline{\mu}_{1945-1973}=1
 $$
 
-is not the preferred baseline.
-
-It may appear only as a diagnostic or robustness normalization if explicitly labeled as such.
-
-The review layer must also obey C05. U.S. recession shading follows the FRED/NBER recession-bar convention and is annualized using the any-month-overlap rule.
-
-Recession shading is visual context only. It is not regime identification, break-date identification, window selection, or anchor selection.
-
-The review layer should therefore mark the 1973 anchor point, shade annualized recession years, and report any Fordist-core mean normalization as a non-baseline diagnostic.
+is not the preferred baseline and may appear only as a diagnostic or robustness comparison.

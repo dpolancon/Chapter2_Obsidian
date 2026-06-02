@@ -26,11 +26,11 @@ anchor_protocol_country: US
 anchor_protocol_preferred_year: 1973
 anchor_protocol_condition: mu_US_1973_equals_1
 anchor_protocol_type: point_year_external_pinch
-anchor_protocol_source: FBR_maximum_utilization_series
+anchor_protocol_source: FRB_maximum_utilization_series
 anchor_protocol_role: level_normalization
 window_average_anchor_allowed_as_baseline: false
 created: 2026-05-06
-updated: 2026-05-14
+updated: 2026-05-26
 ---
 
 
@@ -72,7 +72,7 @@ $$
 \mu_{US,1973}=1
 $$
 
-using 1973 as the FBR full-capacity pinch year.
+using 1973 as the FRB full-capacity pinch year.
 
 The Fordist-core window may remain a historical benchmark or reconstruction context, but it must not define normal utilization by imposing:
 
@@ -263,7 +263,7 @@ $$
 
 Rationale:
 
-1973 is treated as the U.S. full-capacity pinch year because it corresponds to the maximum capacity-utilization observation in the FBR utilization series used as external calibration evidence.
+1973 is treated as the U.S. full-capacity pinch year because it corresponds to the maximum capacity-utilization observation in the FRB utilization series used as external calibration evidence.
 
 Therefore, the following is not the preferred baseline:
 
@@ -280,7 +280,7 @@ S40 anchor registers must record:
 - `anchor_value = 1`
 - `anchor_variable = mu_t`
 - `anchor_type = point_year_external_pinch`
-- `anchor_source = FBR maximum utilization series`
+- `anchor_source = FRB maximum utilization series`
 - `anchor_role = level_normalization`
 - `anchor_status = externally_declared`
 - `diagnostic_window_average_anchor = FALSE`

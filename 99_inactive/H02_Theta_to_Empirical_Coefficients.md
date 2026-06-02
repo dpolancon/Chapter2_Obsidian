@@ -163,11 +163,12 @@ Thus:
 ## 8. Identification logic
 
 $$
-\theta^{tot}$$ is identified because:
-
-- $$k_t$$ captures capital scale  
-- $$s_t$$ captures composition  
-- $$\omega_t$$ and $$\mathcal{E}_t$$ shift only the machinery channel  
+\theta^{tot}
+$$
+is identified because:
+- $k_t$ captures capital scale  
+- $s_t$ captures composition  
+- $\omega_t$ and $\mathcal{E}_t$ shift only the machinery channel  
 
 Thus:
 
@@ -201,8 +202,8 @@ Thus:
 
 The model separates:
 
-- **mechanism** → $$\theta^M$$ (conflict-driven transformation)  
-- **measurement** → $$\theta^{tot}$$ (aggregate outcome)  
+- **mechanism** → $\theta^M$ (conflict-driven transformation)  
+- **measurement** → $\theta^{tot}$ (aggregate outcome)  
 
 The empirical model estimates the second and interprets the first.
 

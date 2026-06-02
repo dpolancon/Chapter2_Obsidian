@@ -4,20 +4,53 @@
     "type": "split",
     "children": [
       {
-        "id": "22609de604d7e174",
+        "id": "dd88ab1292bb682a",
         "type": "tabs",
         "children": [
           {
-            "id": "8798ce9ef2365e73",
+            "id": "d55a69cfb9609522",
             "type": "leaf",
             "state": {
-              "type": "graph",
-              "state": {},
-              "icon": "lucide-git-fork",
-              "title": "Graph view"
+              "type": "markdown",
+              "state": {
+                "file": "99_inactive/Handoff_Next_Worksession.md",
+                "mode": "source",
+                "source": false
+              },
+              "icon": "lucide-file",
+              "title": "Handoff_Next_Worksession"
+            }
+          },
+          {
+            "id": "d59efe192769f4f3",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "99_inactive/H01_Cajas_to_Transformation_Elasticity 1.md",
+                "mode": "source",
+                "source": false
+              },
+              "icon": "lucide-file",
+              "title": "H01_Cajas_to_Transformation_Elasticity 1"
+            }
+          },
+          {
+            "id": "fa0e20c50c0bf386",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "99_inactive/H02_Theta_to_Empirical_Coefficients.md",
+                "mode": "source",
+                "source": false
+              },
+              "icon": "lucide-file",
+              "title": "H02_Theta_to_Empirical_Coefficients"
             }
           }
-        ]
+        ],
+        "currentTab": 2
       }
     ],
     "direction": "vertical"
@@ -179,37 +212,42 @@
       "bases:Create new base": false
     }
   },
-  "active": "8798ce9ef2365e73",
+  "active": "62375676dc5a1dbd",
   "lastOpenFiles": [
-    "01_contradictory_utilization_configurations/okishio_macro_anarchy_bridge/archive_raw_briefs/S01_Overview_Okishio2022.md",
-    "03_paper_facing/Chapter2_Polanco.pdf.md",
-    "01_contradictory_utilization_configurations/00_README.md",
+    "99_inactive/H01_Cajas_to_Transformation_Elasticity 1.md",
+    "99_inactive/PRE_COMMIT_CH2_CHECKLIST.md",
+    "99_inactive/Pending_Prospected_Tasks.md",
+    "99_inactive/Handoff_Next_Worksession.md",
+    "CODEX_CONSTRAINTS.md",
+    "99_inactive",
     "directory.base",
-    "02_econometrics/M10_Empirical_Identification_Framework.md",
-    "02_econometrics/R01_residual_vs_structural_identification.md",
+    "README.md",
+    "02_analyitical_foundation/A00_Aggregate_Benchmark.md",
+    "02_analyitical_foundation/A01_Extensive_Accumulation.md",
+    "02_analyitical_foundation/H01_Cajas_to_Transformation_Elasticity.md",
+    "02_analyitical_foundation/N00_Mechanization_Analytical_References.md",
+    "02_analyitical_foundation/A04_PeripheralTransformationElasticity.md",
+    "02_analyitical_foundation/R04_Measurement_and_Accounting_Consistency.md",
+    "02_analyitical_foundation/R03_Regime_Diagnostic_and_Threshold_Gating.md",
+    "02_analyitical_foundation/R02_Identification_and_Estimation_Protocol.md",
+    "02_analyitical_foundation/R01_Ontological_Interpretation_Guardrails.md",
+    "02_analyitical_foundation/README.md",
+    "02_analyitical_foundation/A03_TransformationElasticity_Two-CapitalCapacityComposition.md",
+    "09_legacy/R06_Extensive-Margin DiagnosticLadder.md",
+    "03_econometrics/E01_Specification_Abstract_Benchmark.md",
+    "09_legacy/R01_Marx_Okishio_Regime_Diagnostic_Guardrail.md",
+    "09_legacy/N01_Two_Corridor_Transformation_Elasticity.md",
+    "09_legacy/R05_ME_NRC_Price_Wedge_Guardrail.md",
+    "09_legacy/R04_What_is_Identified_vs_Reconstructed.md",
+    "09_legacy/R03_Interpretation_of_Theta_as_Contradictory_Object.md",
+    "09_legacy/R02_Threshold_Model_Peripheral_Diagnostic.md",
+    "09_legacy/N05_Normal_Reproduction_Closure.md",
+    "09_legacy",
+    "02_analyitical_foundation.zip",
+    "_99_support_workspace/legacy",
+    "05_codes_implementation.zip",
     "02_econometrics.zip",
-    "02_econometrics/N02_SuperConsistency.md",
-    "02_econometrics/N01_CapacityUtilization_StructuralObject.md",
-    "02_econometrics/L00_Econometrics_References.md",
-    "02_econometrics/R08_threshold_break_diagnostics_to_FGLS.md",
-    "02_econometrics/R07_FGLS_threshold_cointegration_admissibility.md",
-    "02_econometrics/R06_IMOLS_integration_ladder_reconstruction.md",
-    "02_econometrics/R05_LRV_kernel_bandwidth_regime_misalignment.md",
-    "02_econometrics/R04_FMOLS_structural_preservation.md",
-    "02_econometrics/R03_super_consistency_mechanics_hinge.md",
-    "02_econometrics/R02_DOLS_reconstruction_dilemma.md",
     "Untitled.canvas",
-    "contradictory utilization configurations.md",
-    "market anarchy.md",
-    "00_constitutive_core/03B_Process_Tracing_Playbook.md",
-    "01_contradictory_utilization_configurations/01_Theoretical_Core_Notebook.md",
-    "03_paper_facing/00N_Chapter2_PaperFacing_Notes.md",
-    "03_paper_facing/00N_Chapter2_PaperFacing_MAP.md",
-    "03_paper_facing/00E_Chapter2_PaperFacing_Constitution.md",
-    "00_constitutive_core/01_Governing_Memo.md",
-    "Chapter2_Obsidian/00_constitutive_core/01_Governing_Memo.md",
-    "01_contradictory_utilization_configurations/03_Core_Claims_and_Punchlines.md",
-    "01_contradictory_utilization_configurations/02_Abstract.md",
     "01_contradictory_utilization_configurations/okishio_macro_anarchy_bridge/06_Visuals/okishio_infografic.png",
     "Chapter2_Obsidian/00_constitutive_core",
     "Chapter2_Obsidian"

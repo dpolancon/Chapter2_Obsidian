@@ -1,7 +1,7 @@
 ---
 type: note
 status: active
-layer: analytical_foundation
+layer: superseded
 design_role: closure_definition
 scope: chapter2_core
 created: 2026-05-05
