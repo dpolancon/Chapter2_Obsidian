@@ -5,6 +5,7 @@ layer: method
 design_role: empirical_strategy_scaffold
 scope: chapter2_core_support
 related_to:
+  - A00_Aggregate_Transformation_Benchmark
   - N01_CapacityUtilization_StructuralObject
   - N02_SuperConsistency
   - R01_residual_vs_structural_identification
@@ -45,9 +46,13 @@ Do not identify $\mu_t$ by residual.
 Admissible sequence:
 
 $$
-\text{structural relation}
+\text{A00 aggregate interaction relation}
+\rightarrow
+\hat{\theta}_t
 \rightarrow
 \hat{Y}_t^p
+\rightarrow
+\text{level anchoring}
 \rightarrow
 \hat{\mu}_t
 $$
@@ -109,7 +114,7 @@ Rule:
 
 FM-OLS preserves the theoretical regressor matrix, but its long-run variance correction may smooth across historical regime boundaries.
 
-Therefore, FM-OLS is preferred for global long-run reconstruction, not for identifying regime-dependent transformation elasticities by itself.
+Therefore, FM-OLS is preferred for global reconstruction of the A00 time-varying interaction mapping, not for identifying regime-dependent transformation elasticities by itself.
 
 ---
 
@@ -163,7 +168,7 @@ Source notes:
 Final sequence:
 
 $$
-\text{diagnostic ladder}
+\text{A00 aggregate interaction relation}
 \rightarrow
 \text{long-run coefficient recovery}
 \rightarrow
@@ -177,6 +182,8 @@ $$
 $$
 
 This sequence blocks residual identification and keeps productive capacity as the object recovered before utilization.
+
+A03 is activated when the aggregate A00 coefficient must be decomposed into capital-composition mechanisms involving $K^{ME}$, $K^{NRC}$, and $s_t$. A04 is activated when peripheral or external realization constraints contaminate the baseline A00 relation.
 
 ---
 
@@ -211,7 +218,7 @@ Do not scatter econometric references unless the note needs standalone portabili
 
 ## 10. Locked statement
 
-**Chapter 2 does not estimate utilization directly. It estimates the long-run transformation relation, reconstructs productive capacity, anchors its level, and only then derives utilization. FM-OLS is the main estimator, IM-OLS is the robustness check, DOLS is the fragility diagnostic, and threshold-FGLS belongs only to the regime layer after diagnostic admissibility.**
+**Chapter 2 does not estimate utilization directly. It estimates the A00 aggregate interaction relation, recovers $\hat{\theta}_t$, reconstructs productive capacity, anchors its level, and only then derives utilization. FM-OLS is the main estimator, IM-OLS is the robustness check, DOLS is the fragility diagnostic, and threshold-FGLS belongs only to the regime layer after diagnostic admissibility.**
 
 ## Bridge note
 

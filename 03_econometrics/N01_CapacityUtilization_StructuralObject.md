@@ -5,6 +5,7 @@ layer: method
 design_role: structural_object_definition
 scope: chapter2_core_support
 related_to:
+  - A00_Aggregate_Transformation_Benchmark
   - M10_Empirical_Identification_Framework
   - N02_SuperConsistency
   - R01_residual_vs_structural_identification
@@ -78,30 +79,30 @@ In Chapter 2, the hinge object is the transformation elasticity $\theta_t$.
 
 It expresses how capital accumulation is converted into productive capacity.
 
-A generic reconstruction sequence is:
+The A00 baseline econometric object is the aggregate interaction relation:
 
 $$
-\text{long-run relation}
+y_t = c + \beta_1 k_t + \beta_2(\omega_t k_t) + \xi_t,
+$$
+
+which implies:
+
+$$
+\theta_t = \beta_1 + \beta_2\omega_t.
+$$
+
+In A00, the interaction term $\omega_t k_t$ is the baseline econometric device through which the aggregate transformation elasticity becomes time-varying while capital remains undifferentiated.
+
+The reconstruction sequence is therefore:
+
+$$
+\text{A00 aggregate interaction relation}
 \rightarrow
 \hat{\theta}_t
 \rightarrow
 \hat{Y}_t^p
 \rightarrow
 \hat{\mu}_t.
-$$
-
-If the long-run relation includes distributional interaction terms, then $\theta_t$ may vary with distribution.
-
-For example:
-
-$$
-y_t = c + \beta_1 k_t + \beta_2(\omega_t k_t) + \xi_t
-$$
-
-implies:
-
-$$
-\theta_t = \beta_1 + \beta_2\omega_t.
 $$
 
 This is not yet utilization. It is the transformation rule used to reconstruct productive capacity.

@@ -5,6 +5,7 @@ layer: method
 design_role: estimator_warning_rule
 scope: chapter2_core_support
 related_to:
+  - A00_Aggregate_Transformation_Benchmark
   - R03_super_consistency_mechanics_hinge
   - R04_FMOLS_structural_preservation
   - R06_IMOLS_integration_ladder_reconstruction
@@ -101,14 +102,26 @@ That hybrid correction may be statistically convenient, but it is historically m
 
 ## 5. Implication for FM-OLS
 
-FM-OLS remains the preferred main estimator for the long-run reconstruction layer because it preserves the theoretical regressor matrix and works in log-level space.
+FM-OLS remains the preferred main estimator for the long-run reconstruction layer because it preserves the A00 structural regressor matrix and works in log-level space.
 
 However, its LRV correction is global unless the design explicitly modifies it.
+
+Here "global" does not mean constant $\theta$. It means global estimation of the A00 time-varying interaction mapping:
+
+$$
+y_t = c + \beta_1 k_t + \beta_2(\omega_t k_t) + \xi_t,
+$$
+
+with:
+
+$$
+\theta_t = \beta_1 + \beta_2\omega_t.
+$$
 
 So FM-OLS can support:
 
 $$
-\text{long-run relation}
+\text{A00 aggregate interaction relation}
 \rightarrow
 \hat{\theta}
 \rightarrow
@@ -129,7 +142,7 @@ Use the LRV/kernel warning to prevent overclaiming.
 
 The correct claim is:
 
-FM-OLS is structurally cleaner than DOLS for recovering the long-run transformation relation, but its covariance correction is still global. Therefore, FM-OLS can identify a long-run coefficient under a stable relation, but it cannot adjudicate regime-specific transformation elasticities without an additional regime-aware design.
+FM-OLS is structurally cleaner than DOLS for recovering the A00 aggregate interaction relation, but its covariance correction is still global. Therefore, FM-OLS can support the global A00 reconstruction, but it cannot by itself identify regime-dependent transformation elasticities without an additional regime-aware design.
 
 ---
 
@@ -151,7 +164,7 @@ Thus, each estimator has its own structural cost:
 
 ## 8. Locked sentence for reuse
 
-**FM-OLS preserves the structural regressor matrix, but its long-run variance correction can smooth across historical regime boundaries. It is therefore preferred for global long-run reconstruction, not for identifying regime-dependent transformation elasticities by itself.**
+**FM-OLS preserves the A00 structural regressor matrix, but its long-run variance correction can smooth across historical regime boundaries. It is therefore preferred for global estimation of the A00 time-varying interaction mapping, not for identifying regime-dependent transformation elasticities by itself.**
 
 ---
 
