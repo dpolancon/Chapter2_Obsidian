@@ -5,6 +5,8 @@ layer: empirical_design
 design_role: gpim_stock_flow_valuation_protocol
 scope: chapter2_core_support
 related_to:
+  - A00_Aggregate_Transformation_Benchmark
+  - A03_TransformationElasticity_Two-CapitalCapacityComposition
   - N04_Composition_of_Accumulation_and_Transformation
   - R04_What_is_Identified_vs_Reconstructed
   - Price_Deflator_Protocol_ME_NRC_Composition
@@ -82,6 +84,27 @@ Use this register for:
 - the transformation relation;
 - $\theta_t^{tot}$;
 - the derivation of $Y_t^p$ and $\mu_t$.
+
+## A00 baseline and A03 decomposition boundary
+
+A00 uses aggregate real productive capital ($K_t$), not the ME/NRC decomposition as separate explanatory channels.
+
+The aggregate $K_t$ should be constructed from coherent gross real GPIM capacity-relevant capital. ME/NRC component construction can be used as measurement input if needed, but in A00 it enters only to construct aggregate $K_t$.
+
+The A00 econometric baseline requires:
+
+- $y_t$;
+- $k_t$;
+- $\omega_t$;
+- the interaction $\omega_t k_t$.
+
+For implementation, `omega_k_t` should be understood as:
+
+$$
+\omega_{k,t} = \omega_t k_t.
+$$
+
+ME/NRC shares ($s_t$), component stocks, and component-flow shares belong to A03 decomposition/proxy work. Current-cost shares remain diagnostics, not substitutes for real-volume capacity composition.
 
 ## 2.2 Profitability register
 
@@ -363,7 +386,9 @@ Interpretation:
 
 # 10. Relation to the transformation-elasticity model
 
-The theoretical composition relation is:
+A00 identifies the aggregate time-varying transformation path using aggregate $K_t$ and the distributive interaction $\omega_t k_t$.
+
+A03 decomposes that aggregate path using ME/NRC component proxies. In the A03 layer, the theoretical composition relation is:
 
 $$
 \theta_t^{tot}
@@ -385,7 +410,9 @@ $$
 
 This approximation must be stated.
 
-The empirical model identifies a composition-weighted aggregate transformation object.
+This is an A03 decomposition object, not the first-stage A00 baseline. The first-stage A00 baseline remains aggregate $K_t$, time-varying $\theta_t$.
+
+The A03 proxy model identifies a composition-weighted aggregate transformation object.
 
 It does not directly estimate the machinery-specific transformation elasticity.
 
@@ -523,6 +550,12 @@ Therefore:
 The export script should include metadata fields:
 
 - `sector_target = "NFCorp"`
+- `K_t = "aggregate gross real productive capital"`
+- `k_t = "log or dimensionally admissible index of aggregate real productive capital"`
+- `omega_t = "wage-share / distributive condition"`
+- `omega_k_t = "omega_t * k_t"`
+- `A00_capital_object = "aggregate_K_t"`
+- `A03_component_basis = "ME_NRC_component_proxy"`
 - `composition_basis = "ME_NRC_component_proxy"`
 - `composition_tier = "Tier B"`
 - `direct_sector_asset_split = FALSE`

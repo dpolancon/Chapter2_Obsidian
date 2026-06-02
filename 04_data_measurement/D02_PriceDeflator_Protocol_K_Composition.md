@@ -5,6 +5,8 @@ layer: empirical_design
 design_role: price_deflator_protocol
 scope: chapter2_core_support
 related_to:
+  - A00_Aggregate_Transformation_Benchmark
+  - A03_TransformationElasticity_Two-CapitalCapacityComposition
   - N04_Composition_of_Accumulation_and_Transformation
   - R04_What_is_Identified_vs_Reconstructed
   - TARGET_REPO_STRUCTURE_AND_CODE_STAGE_IMPLEMENTATION
@@ -18,6 +20,8 @@ created: 2026-05-06
 Different capital accounts should not be merged as if their prices were identical.
 
 For Chapter 2, machinery and equipment (`ME`) and nonresidential construction (`NRC`) must be treated as distinct capital accounts with distinct stock and investment price structures.
+
+This note is an A03 measurement protocol. It governs the construction of ME/NRC component stocks, shares, and deflator diagnostics once the aggregate A00 capital object is opened. It does not replace the A00 baseline, where the capital object is aggregate real productive capital ($K_t$) and the baseline interaction is $\omega_t k_t$.
 
 The empirical object is not simply the machinery share of capital. It is the machinery share under a stated valuation basis.
 
@@ -358,9 +362,11 @@ but only with metadata:
 
 # 9. Role in the transformation-elasticity model
 
-The real-volume machinery share enters the model as a proxy for the composition channel.
+The real-volume machinery share enters as an A03 composition proxy.
 
-The structural relation is:
+It does not define the first-stage A00 relation. The A00 relation remains aggregate $K_t$, time-varying $\theta_t$, with the distributive interaction $\omega_t k_t$.
+
+Once the aggregate A00 coefficient is decomposed into A03 channels, the structural relation is:
 
 $$
 \theta_t^{tot}
@@ -380,7 +386,7 @@ s_{t,proxy}^{ME|ME,NRC}\theta_t^M
 (1-s_{t,proxy}^{ME|ME,NRC})\theta^O
 $$
 
-This approximation must be stated.
+This approximation must be stated as an A03 proxy relation.
 
 It identifies a composition-weighted transformation object using the available ME–NRC component basis. It does not directly identify the machinery-specific structural elasticity.
 

@@ -5,6 +5,7 @@ layer: empirical_design
 design_role: capacity_utilization_level_anchor_protocol
 scope: chapter2_core_support
 related_to:
+  - "A00_Aggregate_Transformation_Benchmark"
   - "M10_Empirical_Identification_Framework"
   - "N01_CapacityUtilization_StructuralObject"
   - "R01_residual_vs_structural_identification"
@@ -35,11 +36,13 @@ It is a measurement convention that maps the reconstructed productive-capacity p
 The reconstruction sequence is:
 
 $$
-\text{long-run coefficient recovery}
+\text{A00 aggregate interaction relation}
 \rightarrow
-\hat{\theta}^{tot}_t
+\hat{\theta}_t
 \rightarrow
 \hat{Y}^p_t
+\rightarrow
+\text{level anchoring}
 \rightarrow
 \hat{\mu}_t
 $$
@@ -50,9 +53,9 @@ $$
 \hat{\mu}_t = \frac{Y_t}{\hat{Y}^p_t}
 $$
 
-The econometric relation determines the path of $\hat{Y}^p_t$ up to a level normalization.
+S30 recovers the A00 coefficient vector and transformation relation. S40 reconstructs $\hat{Y}_t^p$, applies the level anchor, and derives $\hat{\mu}_t$.
 
-The anchor fixes that level.
+The anchor fixes the utilization level scale. It does not estimate $\theta_t$, select an estimation window, define historical periodization, or validate regime stability.
 
 ---
 
@@ -301,4 +304,4 @@ $$
 \mu_{CL,1980}=1
 $$
 
-	These are country-specific point-year anchors. They provide a common utilization scale without imposing a common calendar year. Estimation windows, historical periodization, and utilization anchors must remain distinct.
+These are country-specific point-year anchors. They provide a common utilization scale without imposing a common calendar year. Estimation windows, historical periodization, and utilization anchors must remain distinct.
