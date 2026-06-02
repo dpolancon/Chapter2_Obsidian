@@ -6,7 +6,7 @@ layer: analytical_foundation
 design_role: identification_protocol
 scope: chapter2_core
 related_to:
-  - A03_Transformation_Elasticity_Two-CapitalCapacityComposition
+  - A03_TransformationElasticity_Two-CapitalCapacityComposition
   - H01_Cajas_to_Transformation_Elasticity
 created: 2026-05-27
 ---
@@ -43,7 +43,7 @@ This bypasses the contaminated intercept and ensures dimensional homogeneity.
 ## 4. Mapping to Structural Payoffs
 - $\beta_1 \to \theta^{NRC}$: Baseline capacity payoff of infrastructure (per [[A01_Extensive_Accumulation]])
 - $\beta_2, \beta_3 \to \theta^{ME}(\pi, s)$: Distributively modulated payoff of machinery (per [[A02_Intensive_Accumulation]])
-- Aggregate $\theta^N$ is composition-weighted per [[A03_Transformation_Elasticity_Two-CapitalCapacityComposition]]
+- Aggregate $\theta^N$ is composition-weighted per [[A03_TransformationElasticity_Two-CapitalCapacityComposition]]
 
 ## Locked Formulation
 Estimation identifies the composition-weighted capacity trend; slopes reconstruct productive capacity structurally; utilization is derived as a pinned dimensionless gap. The intercept is never used for TFP or capacity definition. This protocol enforces the constitutional anti-residual rule.**

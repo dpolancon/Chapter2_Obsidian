@@ -33,7 +33,7 @@ $$
 \theta_t = \beta_1 + \beta_2\omega_t.
 $$
 
-- `02_analyitical_foundation/A00_Aggregate_Benchmark.md`: converted the older A00 note into a legacy alias for the locked A00 note so the vault no longer retains a conflicting constant-$\theta$ benchmark.
+- `02_analyitical_foundation/A00_Aggregate_Benchmark.md`: converted the older A00 note into a legacy alias for the locked A00 note during the first patch, then retired it in the bundle-hygiene pass after references were checked.
 - `02_analyitical_foundation/A03_TransformationElasticity_Two-CapitalCapacityComposition.md`: patched the A00/A03 boundary. A03 is now framed as decomposing the A00 aggregate $\theta_t$ into $K^{ME}$, $K^{NRC}$, and $s_t$, not as the first source of time variation.
 - `03_econometrics/N01_CapacityUtilization_StructuralObject.md`: patched the transformation-elasticity section so $\omega_t k_t$ is named as the A00 baseline econometric object, not an optional example.
 - `03_econometrics/M10_Empirical_Identification_Framework.md`: patched the empirical scaffold so the sequence is A00 aggregate interaction relation, $\hat{\theta}_t$, $\hat{Y}_t^p$, level anchoring, and $\hat{\mu}_t$. Added A03/A04 activation boundaries.
@@ -101,6 +101,14 @@ $$
 - The A00/A03 notation bridge was added to A03. It distinguishes A00's empirical $\theta_t$ path from A03's analytical $\theta^N(\pi,s)$ decomposition without changing the theory.
 - YAML validation passed after the follow-up changes.
 
+## Bundle Hygiene Pass
+
+- Backticked conceptual wikilinks in active analytical notes were converted to active Obsidian wikilinks where they refer to vault notes.
+- Incorrect references to `A03_Transformation_Elasticity_Two-CapitalCapacityComposition` were corrected to `A03_TransformationElasticity_Two-CapitalCapacityComposition`.
+- No active conceptual links to `A00_Aggregate_Benchmark` remained after the scan. The legacy alias note was removed with `git rm`.
+- YAML frontmatter was checked for wikilink brackets and duplicate A00 entries.
+- Markdown math fences were audited for malformed one-sided display blocks.
+
 ## Validation Checklist
 
 - [x] YAML remains valid in all edited Markdown files.
@@ -130,3 +138,6 @@ $$
 - [x] A03 includes `A00_Aggregate_Transformation_Benchmark` in `related_to`.
 - [x] Econometrics notes directly dependent on A00 include `A00_Aggregate_Transformation_Benchmark` in `related_to`.
 - [x] A03 includes the bridge between A00's empirical $\theta_t$ and A03's analytical $\theta^N(\pi,s)$.
+- [x] Backticked conceptual wikilinks fixed where appropriate.
+- [x] Wrong A03 spelling corrected.
+- [x] A00 legacy alias removed after safe reference migration.

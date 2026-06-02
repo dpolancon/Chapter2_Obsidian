@@ -9,7 +9,7 @@ related_to:
   - H00_Okishio_Vidal_Decentralized_Accumulation
   - A01_Extensive_Accumulation
   - A02_Intensive_Accumulation
-  - A03_Transformation_Elasticity_Two-CapitalCapacityComposition
+  - A03_TransformationElasticity_Two-CapitalCapacityComposition
   - A04_PeripheralTransformationElasticity
 created: 2026-05-27
 ---
@@ -30,7 +30,7 @@ Do not interpret $\theta^N$ as:
 $\theta^N(\pi, s)$ is a **composition-weighted structural parameter** that maps capital accumulation to productive capacity growth under idealized coordination. It emerges endogenously from the Double Choice of Technique:
 - $\theta^{NRC}$: Non-distributive baseline payoff of infrastructure (per [[A01_Extensive_Accumulation]])
 - $\theta^{ME}(\pi, s)$: Distributively modulated payoff of machinery (per [[A02_Intensive_Accumulation]])
-- $\theta^N$: Aggregate composition-weighted ratio (per [[A03_Transformation_Elasticity_Two-CapitalCapacityComposition]])
+- $\theta^N$: Aggregate composition-weighted ratio (per [[A03_TransformationElasticity_Two-CapitalCapacityComposition]])
 
 Historical deviations $\theta_t \neq \theta^N$ are not estimation errors. They are the **empirical fingerprints of capitalist "becoming"**: decentralized accumulation, internal firm division (Vidal), utilization gaps ($\mu_t \neq 1$), and peripheral realization bottlenecks ($\pi^{eff} < \pi$).
 

@@ -7,7 +7,7 @@ scope: chapter2_core
 related_to:
   - A01_Extensive_Accumulation
   - A02_Intensive_Accumulation
-  - A03_Transformation_Elasticity_Two-CapitalCapacityComposition
+  - A03_TransformationElasticity_Two-CapitalCapacityComposition
   - A04_PeripheralTransformationElasticity
   - N00_Mechanization_Analytical_References
   - N05_Normal_Reproduction_Closure

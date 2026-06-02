@@ -6,7 +6,7 @@ layer: analytical_toolkit
 design_role: measurement_guardrail
 scope: chapter2_implementation
 related_to:
-  - A03_Transformation_Elasticity_Two-CapitalCapacityComposition
+  - A03_TransformationElasticity_Two-CapitalCapacityComposition
 created: 2026-05-27
 ---
 

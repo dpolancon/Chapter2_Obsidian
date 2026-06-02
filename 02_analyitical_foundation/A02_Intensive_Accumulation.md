@@ -8,7 +8,7 @@ scope: chapter2_core
 related_to:
   - N00_Mechanization_Analytical_References
   - A01_Extensive_Accumulation
-  - A03_Transformation_Elasticity_Two-CapitalCapacityComposition
+  - A03_TransformationElasticity_Two-CapitalCapacityComposition
   - A04_PeripheralTransformationElasticity
   - H03_Double_Choice_of_Technique
   - R05_Frontier_of_Not_Becoming
@@ -46,7 +46,7 @@ $$ a = \Phi(q; K^{NRC}) = \lambda_0^{[s]} + \lambda_1^{[s]}q + \lambda_2^{[s]}q^
 - $\lambda_0^{[s]} > 0$: Base productivity level rises with better infrastructure
 - $\lambda_1^{[s]} > 0$: Linear mechanization payoff increases with plant scale and logistical efficiency
 - $\lambda_2^{[s]} < 0$: Diminishing marginal productivity of mechanization (concavity condition)
-- $\frac{\partial \lambda_i^{[s]}}{\partial \omega} = 0$: Frontier parameters are structurally determined, not distributively shifted. They remain constant within regime $s$ and jump discretely only when extensive-margin reorganization occurs ($s \to s'$), per `[[R06_Regime_Gating_and_Diagnostic_Ladder]]`.
+- $\frac{\partial \lambda_i^{[s]}}{\partial \omega} = 0$: Frontier parameters are structurally determined, not distributively shifted. They remain constant within regime $s$ and jump discretely only when extensive-margin reorganization occurs ($s \to s'$), per [[R06_Regime_Gating_and_Diagnostic_Ladder]].
 
 **Analytical Role of $K^{NRC}$:** Infrastructure does not enter the objective function as an optimization variable or an interactive term with $\pi$. It strictly shifts the technological frontier via regime-indexed constants, altering the ceiling, marginal payoff, and curvature of the mechanization choice.
 
@@ -73,7 +73,7 @@ Higher profit share $\pi$ (lower distributive pressure $\omega$) mechanically sh
 ## 4. Normal Labor Productivity (Smooth Reproduction Benchmark)
 Substituting $q^*$ back into the regime-conditioned frontier yields the **normal rate of labor productivity**:
 $$ a^N(\pi, s) = \lambda_0^{[s]} + \lambda_1^{[s]}q^* + \lambda_2^{[s]}(q^*)^2 $$
-*(Note: $a^N(\pi, s) \equiv a^N(\omega, s)$ with $\pi = 1-\omega$, ensuring direct compatibility with the capacity identity in `[[A03_Transformation_Elasticity_Two-CapitalCapacityComposition]]`.)*
+*(Note: $a^N(\pi, s) \equiv a^N(\omega, s)$ with $\pi = 1-\omega$, ensuring direct compatibility with the capacity identity in [[A03_TransformationElasticity_Two-CapitalCapacityComposition]].)*
 
 **Interpretation:**
 - $a^N$ is the frictionless productivity ceiling achievable under the current profit share and structural regime.
@@ -84,14 +84,14 @@ $$ a^N(\pi, s) = \lambda_0^{[s]} + \lambda_1^{[s]}q^* + \lambda_2^{[s]}(q^*)^2 $
 ---
 
 ## 5. Ontological Status: The Optimization as "Not Becoming"
-Per the Okishio-Vidal articulation and `[[R05_Frontier_of_Not_Becoming]]`, this optimization problem **does not assume** a representative, unified firm solving a global profit-maximization problem. Instead:
+Per the Okishio-Vidal articulation and [[R05_Frontier_of_Not_Becoming]], this optimization problem **does not assume** a representative, unified firm solving a global profit-maximization problem. Instead:
 
 1. **Abstraction of "Not Becoming":** $q^*(\pi, s)$ and $a^N(\pi, s)$ represent the smooth reproduction benchmark under idealized coordination. They define the geometric boundary of what is technically and distributively possible.
 2. **Historical "Becoming":** Real accumulation is decentralized, internally divided, and crisis-prone. Firms rarely operate exactly at $q^*$. The actual mechanization rate $q_t$ and productivity $a_t$ deviate systematically due to:
    - Capitalist market anarchy (Okishio)
    - Contested capacity conventions and internal firm division (Vidal)
    - Financial constraints and external wedges
-3. **Peripheral Truncation:** In the capitalist periphery, FX scarcity may further squeeze the realized accumulation rate via $\pi^{eff} = \pi \cdot \phi_t$ (per `[[A04_PeripheralTransformationElasticity]]`). This does not alter the analytical benchmark; it truncates its materialization, widening the gap between $a^N$ and historical $a_t$.
+3. **Peripheral Truncation:** In the capitalist periphery, FX scarcity may further squeeze the realized accumulation rate via $\pi^{eff} = \pi \cdot \phi_t$ (per [[A04_PeripheralTransformationElasticity]]). This does not alter the analytical benchmark; it truncates its materialization, widening the gap between $a^N$ and historical $a_t$.
 4. **Analytical Function:** The optimization provides the necessary theoretical limit against which historical contradiction is measured. The gap $a_t - a^N$ and the resulting utilization deviation $\mu_t \neq 1$ are the empirical fingerprints of capitalist "becoming."
 
 ---

@@ -8,7 +8,7 @@ scope: chapter2_transition
 related_to:
   - A01_Extensive_Accumulation
   - A02_Intensive_Accumulation
-  - A03_Transformation_Elasticity_Two-CapitalCapacityComposition
+  - A03_TransformationElasticity_Two-CapitalCapacityComposition
   - A04_PeripheralTransformationElasticity
   - H00_Okishio_Vidal_Decentralized_Accumulation
   - H01_Cajas_to_Transformation_Elasticity

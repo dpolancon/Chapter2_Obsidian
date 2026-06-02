@@ -6,7 +6,7 @@ layer: analytical_foundation
 design_role: mechanism_definition
 scope: chapter2_core
 related_to:
-  - A03_Transformation_Elasticity_Two-CapitalCapacityComposition
+  - A03_TransformationElasticity_Two-CapitalCapacityComposition
   - N00_Mechanization_Analytical_References
   - N02_Peripheral_Mechanization_Constraint
   - R06_Regime_Gating_and_Diagnostic_Ladder

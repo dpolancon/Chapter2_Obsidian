@@ -56,7 +56,7 @@ Productive capacity ($Y^p$) is the joint outcome of the extensive and intensive 
 
 Eliminating labor $L$ between $a^N$ and $q^*$ yields the **capacity composition identity**:
 $$ Y^p = \frac{a^N(\pi, s)}{q^*(\pi, s)} K^{ME} + \Gamma(K^{NRC}) $$
-where $\pi = 1-\omega$ is the nominal profit share, and $s = K^{ME}/(K^{ME} + K^{NRC})$ is the mechanization composition share. *(Note: $a^N(\pi, s) \equiv a^N(\omega, s)$ by definition; $\pi$ notation is used here for symmetry with `[[A02_Intensive_Accumulation]]` and `[[A04_PeripheralTransformationElasticity]]`.)*
+where $\pi = 1-\omega$ is the nominal profit share, and $s = K^{ME}/(K^{ME} + K^{NRC})$ is the mechanization composition share. *(Note: $a^N(\pi, s) \equiv a^N(\omega, s)$ by definition; $\pi$ notation is used here for symmetry with [[A02_Intensive_Accumulation]] and [[A04_PeripheralTransformationElasticity]].)*
 
 This identity analytically decomposes capacity into two structurally distinct channels:
 - **Variable Capacity Channel:** $\frac{a^N}{q^*} K^{ME}$ captures the labor-machinery combination operating along the intensive-margin frontier.
@@ -112,7 +112,7 @@ $$ \theta^N(\pi, s) \equiv \frac{g_{Y^p}}{g_K^N} = \frac{\theta^{NRC}(1-s) g_{K^
 **Consistency with Gap Formulation (`H01`):**
 When accumulation is machinery-dominated ($g_{K^{ME}} \approx g_K^N$ and $s \to 1$), the aggregate elasticity simplifies to:
 $$ \theta^N \approx \theta^{ME} = \frac{a^N}{q^*} = 1 + \frac{a^N - q^*}{q^*} \approx 1 + \frac{a^N - q^*}{g_K^N} $$
-This recovers the analytical gap formulation used in `[[H01_Cajas_to_Transformation_Elasticity]]`, proving that $\theta^N$ and the productivity-mechanization gap are mathematically equivalent representations of the same structural object under different composition regimes.
+This recovers the analytical gap formulation used in [[H01_Cajas_to_Transformation_Elasticity]], proving that $\theta^N$ and the productivity-mechanization gap are mathematically equivalent representations of the same structural object under different composition regimes.
 
 ---
 
@@ -126,7 +126,7 @@ Given $\lambda_2^{[s]} < 0$ (concave frontier), $\theta^{ME}$ typically exhibits
 ## 6. Ontological Status & Analytical Function
 1. **Abstraction of "Not Becoming":** $\theta^N(\pi, s)$ is a smooth-reproduction benchmark. It defines the maximum structural efficiency of the accumulation process under idealized coordination and fixed regime parameters $\lambda^{[s]}$.
 2. **Historical "Becoming":** Real capacity formation is decentralized, internally divided, and crisis-prone. The actual transformation ratio $\theta_t$ systematically deviates from $\theta^N$ due to Okishio's market anarchy, Vidal's internal firm division, and utilization gaps ($\mu_t \neq 1$).
-3. **Regime Dependence:** $\theta^N$ is not globally stable. It jumps discretely when the extensive margin undergoes structural reorganization ($s \to s'$), shifting all $\lambda_i^{[s]}$ and recalibrating both $\theta^{NRC}$ and $\theta^{ME}$. This justifies gating empirical threshold transitions on extensive-margin closure conditions (`[[R06_Regime_Gating_and_Diagnostic_Ladder]]`).
+3. **Regime Dependence:** $\theta^N$ is not globally stable. It jumps discretely when the extensive margin undergoes structural reorganization ($s \to s'$), shifting all $\lambda_i^{[s]}$ and recalibrating both $\theta^{NRC}$ and $\theta^{ME}$. This justifies gating empirical threshold transitions on extensive-margin closure conditions ([[R06_Regime_Gating_and_Diagnostic_Ladder]]).
 4. **Empirical Bridge:** In the Basu-compliant cointegration framework, $\theta^N$ corresponds to the systematic part of the capacity reconstruction vector. The deviation $\tilde{\mu}_t = \ln(Y_t/Y_r) - \ln \hat{Y}^p_t$ captures the ontological distance between the smooth-reproduction abstraction and historical reality.
 
 ---

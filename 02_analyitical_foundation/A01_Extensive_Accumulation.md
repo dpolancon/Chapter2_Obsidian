@@ -7,7 +7,7 @@ design_role: mechanism_definition
 scope: chapter2_core
 related_to:
   - A02_Intensive_Accumulation
-  - A03_Transformation_Elasticity_Two-CapitalCapacityComposition
+  - A03_TransformationElasticity_Two-CapitalCapacityComposition
   - H01_Cajas_to_Transformation_Elasticity
   - R05_Frontier_of_Not_Becoming
   - R06_Regime_Gating_and_Diagnostic_Ladder
