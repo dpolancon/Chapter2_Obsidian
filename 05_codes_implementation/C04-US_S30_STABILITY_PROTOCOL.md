@@ -15,7 +15,7 @@ us_s40_anchor_type: point_year_external_pinch
 us_s40_anchor_source: FRB_maximum_utilization_series
 window_average_anchor_allowed_as_baseline: false
 created: 2026-05-14
-updated: 2026-05-14
+updated: 2026-06-02
 related_to:
   - US_S30_SUBSTANTIVE_REVIEW_2026-05-14_PRELIMINARY
   - R09_structural_break_protocol
@@ -120,6 +120,18 @@ y_t \sim k_t + \omega^K_t
 $$
 
 for the restricted B1 pathway.
+
+`omega_k_t` is the A00 baseline interaction variable (`omega_t k_t`), not a secondary extension.
+
+The standardized implementation export is:
+
+`omega_k_t = omega_t * k_t`
+
+meaning:
+
+$$
+\omega_{k,t}=\omega_t k_t
+$$
 
 ---
 

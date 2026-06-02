@@ -34,7 +34,7 @@ anchor_protocol_role: level_normalization
 ect_regime_classifier_allowed: false
 window_average_anchor_allowed_as_baseline: false
 created: 2026-05-06
-updated: 2026-05-14
+updated: 2026-06-02
 ---
 
 # Memo 2 — Chile Code Recycling Map
@@ -288,7 +288,27 @@ Estimator roles:
 - IM-OLS = robustness;
 - DOLS = fragility / stress.
 
-For Chile, the S30 equation should allow composition-weighted transformation logic.
+Chile S30 must begin from the A00 aggregate interaction baseline before escalating to composition or external-constraint surfaces.
+
+The hierarchy is:
+
+1. A00 aggregate interaction baseline:
+
+`omega_k_t = omega_t * k_t`
+
+meaning:
+
+$$
+\omega_{k,t}=\omega_t k_t
+$$
+
+2. A03 ME/NRC composition escalation, where machinery and non-machinery capital shares condition the aggregate relation.
+
+3. A04 external/peripheral realization escalation, where foreign-exchange, balance-of-payments, and peripheral mechanization variables are diagnostic or escalated realization variables.
+
+Chile must not begin directly from composition terms, threshold surfaces, or external-constraint terms as if they were baseline replacements. A04/external variables can diagnose or escalate the A00/A03 relation, but they do not replace the A00 aggregate interaction baseline.
+
+For Chile, the escalated S30 equation may allow composition-weighted transformation logic after the A00 baseline is declared.
 
 The relevant interaction surface may include:
 

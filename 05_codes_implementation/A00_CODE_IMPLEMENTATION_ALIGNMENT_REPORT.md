@@ -6,7 +6,7 @@ layer: "implementation_design"
 design_role: "code_implementation_alignment_audit"
 scope: "chapter2_results_repo"
 created: 2026-06-01
-updated: 2026-06-01
+updated: 2026-06-02
 related_to:
   - A00_Aggregate_Transformation_Benchmark
   - A03_TransformationElasticity_Two-CapitalCapacityComposition
@@ -32,6 +32,18 @@ $$
 
 No code scripts were edited. No data-measurement notes were substantively patched.
 
+## Implementation Note Patch Pass
+
+- C01 patched.
+- C02 patched.
+- C04 patched.
+- US S40 Restricted B1 contract patched.
+- `omega_k_t = omega_t * k_t` standardized in implementation notes.
+- Code scripts not patched yet.
+- Remaining code/export metadata risks: scripts still need to export `omega_k_t`, preserve metadata for `K_t`, `k_t`, `y_t`, `omega_t`, and `omega_k_t`, tag A03/A04 escalation variables, and keep S40 estimation-window, reconstruction-window, historical-period, diagnostic, and anchor fields separate.
+
+Decisions for the four target notes are now `patched_pending_review`.
+
 ## 2. Implementation-note inventory
 
 ### `CODEX_CONSTRAINTS.md`
@@ -48,18 +60,18 @@ No code scripts were edited. No data-measurement notes were substantively patche
 - current role: U.S. code recycling and staged script map.
 - pipeline stage: S10, S20, S30, S40, S50, S90, S99.
 - relevant architecture layer: A00 baseline, M10 reconstruction, S30/S40, S40 anchoring, diagnostics.
-- decision: minor_update_recommended
+- decision: patched_pending_review
 - reason: The note is strong on estimator hierarchy, S30/S40 separation, and the 1973 point-year anchor. It names `omega_t` and the old relation `theta_t = beta_1 + beta_2 omega_t`, but the expected S10 variables do not explicitly include the A00 interaction export `omega_t k_t` or a clear mapping from `theta_tot` to A00's aggregate time-varying `theta_t`.
-- proposed patch direction: Add implementation metadata for `k_t`, `omega_t`, and `omega_k_t = omega_t * k_t`; state that restricted B1 is the A00 aggregate interaction implementation before any A03 composition interpretation.
+- patch status: Added implementation metadata for `K_t`, `k_t`, `omega_t`, and `omega_k_t = omega_t * k_t`; stated that restricted B1 is the A00 aggregate interaction implementation before any A03 composition interpretation.
 
 ### `05_codes_implementation/C02-CL_00_MEMO_RECYCLING.md`
 
 - current role: Chile code recycling and staged script map.
 - pipeline stage: S10, S20, S30, S40, S50, S60, S90, S99.
 - relevant architecture layer: A00 baseline, A03 decomposition, A04 external escalation, M10 reconstruction, S30/S40, diagnostics.
-- decision: substantive_update_recommended
+- decision: patched_pending_review
 - reason: The note correctly assigns Chile's external constraint work to S60/A04-like implementation and blocks ECT regime classification. However, the S30 equation discussion starts from composition and threshold surfaces. It should more explicitly state the A00 aggregate interaction baseline first, then frame composition and external-constraint terms as A03/A04 escalations.
-- proposed patch direction: Add a short baseline hierarchy paragraph: S30 must first know whether it is estimating the A00 aggregate interaction relation or an A03/A04 escalated specification; `omega_t k_t` should be exported as the A00 baseline interaction; ME/NRC and external terms are escalation variables with metadata flags.
+- patch status: Added a baseline hierarchy paragraph: Chile begins with the A00 aggregate interaction relation, then escalates to A03 ME/NRC composition and A04 external/peripheral realization diagnostics.
 
 ### `05_codes_implementation/C03-REPO_STRUCTURE.md`
 
@@ -75,9 +87,9 @@ No code scripts were edited. No data-measurement notes were substantively patche
 - current role: U.S. S30 formal stability gate and restricted B1 adjudication protocol.
 - pipeline stage: S30.
 - relevant architecture layer: A00 implementation, S30/S40 gate, stability diagnostics, anchor boundary.
-- decision: minor_update_recommended
+- decision: patched_pending_review
 - reason: The note explicitly uses `y_t ~ k_t + omega_k_t` for B1 and blocks S40 anchoring authority. This aligns with A00, but it should spell out that `omega_k_t` is the A00 interaction variable `omega_t k_t`.
-- proposed patch direction: Add one sentence in the B1 object section: `omega_k_t` is the A00 baseline interaction, not a secondary extension.
+- patch status: Added the B1 object sentence that `omega_k_t` is the A00 baseline interaction variable, not a secondary extension, with the standardized export formula.
 
 ### `05_codes_implementation/C05-FIGURE_PROTOCOL.md`
 
@@ -93,9 +105,9 @@ No code scripts were edited. No data-measurement notes were substantively patche
 - current role: U.S. S40 restricted B1 reconstruction contract.
 - pipeline stage: S40 reconstruction.
 - relevant architecture layer: M10 reconstruction, S40 anchor, residual guardrail, S30/S40 separation.
-- decision: minor_update_recommended
+- decision: patched_pending_review
 - reason: The reconstruction sequence is correct and blocks residual utilization, DOLS reconstruction, direct `theta_M`, and Fordist-core mean anchoring. It still names the reconstructed object `theta_tot`; this should be bridged to A00's aggregate `theta_t` path for clarity.
-- proposed patch direction: Add a notation sentence: in the restricted B1 implementation, `theta_tot` is the exported reconstruction label for the A00 aggregate time-varying transformation path, not a direct A03 machinery-specific object.
+- patch status: Added notation that `theta_tot` is the exported reconstruction label for the locked A00 empirical aggregate time-varying `theta_t` path, not a direct A03 machinery-specific object.
 
 ### `05_codes_implementation/US S40 Review and Figures Contract.md`
 
@@ -173,7 +185,7 @@ No code scripts were edited. No data-measurement notes were substantively patche
 | log capital `k_t` | Present in C04 B1 equation as `k_t`; less explicit in C01/C02 variable lists. | Mostly aligned. | Require exported `k_t` or documented log/index transform. |
 | output `y_t` | Present in C04 B1 equation; source panels mention real output. | Mostly aligned. | Require `Y_real` and `y_t` mapping in S10/S30 manifests. |
 | wage share `\omega_t` | Present in C01/C02 expected objects and B1 logic. | Aligned but needs interaction export. | Record source, transformation, and admissibility status for `omega_t`. |
-| interaction `\omega_t k_t` | Present as `omega_k_t` in C04, not consistently named elsewhere. | Minor gap. | Add `omega_k_t = omega_t * k_t` as A00 baseline export metadata. |
+| interaction `\omega_t k_t` | Standardized in C01, C02, and C04 as `omega_k_t = omega_t * k_t`; code scripts are not patched yet. | Notes aligned; export implementation pending. | Export `omega_k_t = omega_t * k_t` in source-of-truth or S30-ready panels. |
 | reconstructed capacity `\hat{Y}_t^p` | Present as `Yp`, `Yp_unanchored`, productive capacity paths. | Aligned. | Preserve S40-only authority. |
 | utilization `\hat{\mu}_t` | Present as `mu` derived from `Y_real / Yp`. | Aligned. | Preserve residual guardrail and anchor metadata. |
 | ME/NRC component variables | Present in C01/C02 and data notes. | Needs clearer A03 tagging. | Mark ME/NRC variables as A03 decomposition/proxy variables, not A00 baseline. |
@@ -189,12 +201,15 @@ No code scripts were edited. No data-measurement notes were substantively patche
 - Add `A03_TransformationElasticity_Two-CapitalCapacityComposition` and `A04_PeripheralTransformationElasticity` to implementation-note `related_to` lists where composition or external constraints are directly implemented.
 - Verify older `related_to` keys resolve to existing note names.
 
-### Conceptual note updates
+### Completed implementation-note updates
 
-- Patch C01 to state that `omega_k_t` / `omega_t k_t` is the A00 baseline interaction export.
-- Patch C02 to place the A00 aggregate interaction baseline before A03/A04 Chile escalations.
-- Patch C04 to define `omega_k_t` explicitly as `omega_t k_t`.
-- Patch the S40 reconstruction contract to bridge implementation `theta_tot` to A00's empirical aggregate `theta_t` path.
+- C01 now states that `omega_k_t` / `omega_t k_t` is the A00 baseline interaction export.
+- C02 now places the A00 aggregate interaction baseline before A03/A04 Chile escalations.
+- C04 now defines `omega_k_t` explicitly as `omega_t k_t`.
+- The S40 reconstruction contract now bridges implementation `theta_tot` to A00's empirical aggregate `theta_t` path.
+
+### Future data-note updates
+
 - Patch D01/D02/D03 as already recommended in the data-measurement report.
 
 ### Code implementation updates
@@ -212,11 +227,20 @@ No code scripts were edited. No data-measurement notes were substantively patche
 - [x] all Markdown implementation notes inventoried.
 - [x] A00 baseline checked.
 - [x] $\omega_t k_t$ implementation requirement checked.
+- [x] C01 maps `omega_k_t` to `omega_t k_t`.
+- [x] C01 states restricted B1 is the A00 aggregate interaction implementation.
+- [x] C02 stages Chile as A00 first, then A03/A04 escalation.
+- [x] C04 defines `omega_k_t` as the A00 baseline interaction.
+- [x] US S40 Restricted B1 contract bridges `theta_tot` to the A00 empirical aggregate `theta_t` path.
+- [x] No note treats A03 as the first source of time variation.
+- [x] No note treats A00 as constant-theta.
 - [x] A03 decomposition boundary checked.
 - [x] A04/external escalation checked where relevant.
 - [x] S30/S40 distinction checked.
 - [x] stable-periodization risk register completed.
 - [x] anchor versus periodization distinction checked.
-- [x] no residual-utilization slippage found or all cases flagged.
-- [x] no substantive code scripts edited.
-- [x] only safe mechanical Markdown/Obsidian hygiene applied.
+- [x] No note treats residuals as identifying utilization.
+- [x] S40 does not collapse estimation window, anchor, historical periodization, and diagnostics.
+- [x] No code scripts edited.
+- [x] YAML parses.
+- [x] No malformed display math fences.

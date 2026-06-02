@@ -32,7 +32,7 @@ new_model_estimation_allowed: false
 review_figures_allowed: false
 s50_activation_allowed: false
 created: 2026-05-14
-updated: 2026-05-26
+updated: 2026-06-02
 related_to:
   - C01-US_00_MEMO_RECYCLING
   - C03-REPO_STRUCTURE
@@ -130,6 +130,10 @@ The script must not use DOLS coefficients as the reconstruction basis.
 ## 4. Reconstruction object
 
 The reconstruction object is `theta_tot`, not a direct estimate of machinery-specific `theta_M`.
+
+`theta_tot` is the exported reconstruction label for the locked A00 empirical aggregate time-varying transformation path, `theta_t`.
+
+It is not a direct A03 machinery-specific object.
 
 The restricted B1 path must treat the long-run transformation relation as the upstream identified object and then derive the capacity-utilization path downstream.
 

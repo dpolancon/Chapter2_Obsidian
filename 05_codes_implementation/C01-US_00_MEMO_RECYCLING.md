@@ -30,7 +30,7 @@ anchor_protocol_source: FRB_maximum_utilization_series
 anchor_protocol_role: level_normalization
 window_average_anchor_allowed_as_baseline: false
 created: 2026-05-06
-updated: 2026-05-26
+updated: 2026-06-02
 ---
 
 
@@ -180,6 +180,26 @@ Expected variables:
 - `pY`
 - `pK`
 - profitability inputs
+
+### A00 interaction metadata
+
+For A00 implementation metadata, `K_t` is aggregate real productive capital.
+
+`k_t` is the log of `K_t` or another dimensionally admissible aggregate-capital index declared in the source-of-truth panel.
+
+`omega_t` is the wage-share / distributive condition used in the aggregate transformation relation.
+
+The A00 baseline interaction export is:
+
+`omega_k_t = omega_t * k_t`
+
+meaning:
+
+$$
+\omega_{k,t}=\omega_t k_t
+$$
+
+Restricted B1 is therefore the A00 aggregate interaction implementation before any A03 composition interpretation. Machinery and non-machinery capital variables may support A03 mechanism interpretation, but they do not replace the A00 baseline object.
 
 The current scripts appear to repeatedly rebuild real output, real capital, and wage-share objects internally. That should stop. Each script should not behave as a tiny independent republic.
 
